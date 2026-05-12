@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>課程回饋｜新手也懂的設計系統 AI 工作流 — AAPD DSWS</title>
+<meta name="description" content="AAPD 新手也懂的設計系統 AI 工作流直播工作坊｜三場次學員滿意度回饋整理">
+<meta property="og:title" content="課程回饋｜設計系統 AI 工作流 — AAPD DSWS">
+<meta property="og:description" content="62 位學員回饋整理，涵蓋評分、NPS、亮點與改善建議">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple: #534AB7;
+    --purple-light: #EEEDFE;
+    --purple-mid: #AFA9EC;
+    --green: #1D9E75;
+    --green-light: #E1F5EE;
+    --coral: #D85A30;
+    --coral-light: #FAECE7;
+    --amber: #BA7517;
+    --amber-light: #FAEEDA;
+    --red: #A32D2D;
+    --red-light: #FCEBEB;
+    --text: #1a1a1a;
+    --text-2: #555;
+    --text-3: #888;
+    --border: rgba(0,0,0,0.08);
+    --bg: #f7f6f3;
+    --card: #ffffff;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+
+  /* HEADER */
+  .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0 24px; }
+  .header-inner { max-width: 900px; margin: 0 auto; padding: 20px 0 16px; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .header-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--purple-light); color: var(--purple); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .header-title { font-size: 20px; font-weight: 600; color: var(--text); line-height: 1.3; }
+  .header-sub { font-size: 13px; color: var(--text-3); margin-top: 4px; }
+  .header-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
+  .header-stat { text-align: right; }
+  .header-stat-num { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; color: var(--purple); }
+  .header-stat-label { font-size: 11px; color: var(--text-3); }
+
+  /* TABS */
+  .tab-wrap { background: var(--card); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 10; }
+  .tab-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  .tab-inner::-webkit-scrollbar { display: none; }
+  .tab-btn { padding: 14px 18px; font-size: 13px; font-weight: 500; color: var(--text-3); border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; font-family: 'Noto Sans TC', sans-serif; transition: all 0.15s; }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--purple); border-bottom-color: var(--purple); }
+
+  /* MAIN */
+  .main { max-width: 900px; margin: 0 auto; padding: 24px; }
+
+  /* SECTION */
+  .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin: 28px 0 12px; }
+  .section-label:first-child { margin-top: 0; }
+
+  /* METRIC CARDS */
+  .metrics-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .mc { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; }
+  .mc-label { font-size: 11px; color: var(--text-3); margin-bottom: 6px; }
+  .mc-val { font-family: 'DM Mono', monospace; font-size: 28px; font-weight: 500; color: var(--text); line-height: 1; }
+  .mc-val span { font-size: 13px; color: var(--text-3); font-family: 'Noto Sans TC', sans-serif; }
+  .mc-sub { font-size: 11px; color: var(--text-3); margin-top: 5px; }
+
+  /* FUNNEL */
+  .funnel-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+  .funnel-sessions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .funnel-session-label { font-size: 12px; font-weight: 500; color: var(--text-2); margin-bottom: 10px; }
+  .funnel-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .funnel-bar-label { font-size: 11px; color: var(--text-3); width: 42px; flex-shrink: 0; }
+  .funnel-bar-track { flex: 1; background: #f0efe9; border-radius: 4px; height: 8px; overflow: hidden; }
+  .funnel-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+  .funnel-bar-val { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--text-3); width: 30px; text-align: right; }
+  .funnel-divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+  .funnel-all-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .funnel-all-item { display: flex; flex-direction: column; gap: 3px; }
+  .funnel-all-num { font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 500; }
+  .funnel-all-sub { font-size: 11px; color: var(--text-3); }
+
+  /* TWO COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+  /* CHART CARD */
+  .cc { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+  .cc-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 14px; }
+  .score-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
+  .score-label { font-size: 12px; color: var(--text-2); width: 100px; flex-shrink: 0; text-align: right; line-height: 1.3; }
+  .score-track { flex: 1; background: #f0efe9; border-radius: 4px; height: 9px; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 4px; background: var(--purple); transition: width 0.5s; }
+  .score-val { font-size: 12px; font-weight: 500; font-family: 'DM Mono', monospace; color: var(--text); width: 26px; }
+  .dist-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+  .dist-label { font-size: 12px; color: var(--text-3); width: 26px; }
+  .dist-track { flex: 1; background: #f0efe9; border-radius: 4px; height: 8px; overflow: hidden; }
+  .dist-fill { height: 100%; border-radius: 4px; background: #EF9F27; transition: width 0.5s; }
+  .dist-count { font-size: 12px; font-family: 'DM Mono', monospace; color: var(--text-3); width: 18px; text-align: right; }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+
+  /* NPS */
+  .nps-nums { display: flex; gap: 20px; margin-bottom: 14px; }
+  .nps-item { display: flex; flex-direction: column; gap: 2px; }
+  .nps-item-label { font-size: 10px; color: var(--text-3); }
+  .nps-item-val { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; }
+  .nps-bar-wrap { display: flex; height: 10px; border-radius: 6px; overflow: hidden; gap: 1px; }
+  .nps-seg { height: 100%; transition: width 0.5s; }
+  .nps-seg-labels { display: flex; justify-content: space-between; margin-top: 6px; }
+  .nps-seg-label { font-size: 10px; color: var(--text-3); }
+  .nps-explain { background: #f7f6f3; border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 14px; font-size: 11px; color: var(--text-3); line-height: 1.7; }
+  .nps-explain strong { color: var(--text-2); font-weight: 500; }
+  .nps-chips { display: flex; gap: 5px; flex-wrap: wrap; margin: 4px 0; }
+  .chip { font-size: 10px; padding: 1px 7px; border-radius: 20px; font-weight: 500; }
+  .chip-g { background: var(--green-light); color: var(--green); }
+  .chip-a { background: var(--amber-light); color: var(--amber); }
+  .chip-r { background: var(--red-light); color: var(--red); }
+  .nps-formula { font-family: 'DM Mono', monospace; font-size: 11px; margin-top: 4px; color: var(--text-2); }
+
+  /* PURPOSE */
+  .purpose-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .purpose-label { font-size: 12px; color: var(--text-2); flex: 0 0 auto; max-width: 155px; line-height: 1.3; }
+  .purpose-track { flex: 1; background: #f0efe9; border-radius: 4px; height: 8px; overflow: hidden; }
+  .purpose-fill { height: 100%; border-radius: 4px; background: var(--purple); opacity: 0.6; transition: width 0.5s; }
+  .purpose-cnt { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--text-3); width: 22px; text-align: right; }
+
+  /* TAGS */
+  .tag { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 20px; margin: 0 4px 5px 0; line-height: 1.5; }
+  .tag-g { background: var(--green-light); color: #0a5e40; }
+  .tag-a { background: var(--amber-light); color: #7a4a00; }
+
+  /* COMMENTS */
+  .comment-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; }
+  .comment-badge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 20px; background: var(--purple-light); color: var(--purple); font-weight: 500; margin-bottom: 8px; }
+  .comment-text { font-size: 13px; color: var(--text); line-height: 1.75; }
+  .improve-card { background: var(--card); border: 1px solid var(--border); border-left: 3px solid #EF9F27; border-radius: 0 var(--radius) var(--radius) 0; padding: 12px 16px; margin-bottom: 10px; }
+  .improve-text { font-size: 13px; color: var(--text-2); line-height: 1.75; }
+
+  /* FOOTER */
+  .footer { background: var(--card); border-top: 1px solid var(--border); padding: 20px 24px; text-align: center; color: var(--text-3); font-size: 12px; margin-top: 40px; }
+  .footer a { color: var(--purple); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .main { padding: 16px; }
+    .two-col { grid-template-columns: 1fr; }
+    .funnel-sessions { grid-template-columns: 1fr; }
+    .funnel-all-row { grid-template-columns: repeat(3,1fr); }
+    .header-inner { flex-direction: column; }
+    .header-meta { align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div>
+      <div class="header-badge">AAPD DSWS</div>
+      <div class="header-title">新手也懂的設計系統 AI 工作流<br>直播工作坊｜課程滿意度回饋</div>
+      <div class="header-sub">三場次學員回饋整理 · 2026</div>
+    </div>
+    <div class="header-meta">
+      <div class="header-stat">
+        <div class="header-stat-num">62</div>
+        <div class="header-stat-label">份問卷回覆</div>
+      </div>
+      <div class="header-stat">
+        <div class="header-stat-num" style="font-size:16px;color:var(--text-2);">120 位報名</div>
+        <div class="header-stat-label">填寫率 52%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tab-wrap">
+  <div class="tab-inner">
+    <button class="tab-btn active" onclick="switchTab(this,'all')">全部場次</button>
+    <button class="tab-btn" onclick="switchTab(this,'s1')">3/14 (六) 第一場</button>
+    <button class="tab-btn" onclick="switchTab(this,'s2')">3/21 (六) 第二場</button>
+    <button class="tab-btn" onclick="switchTab(this,'s3')">5/9 (六) 第三場</button>
+  </div>
+</div>
+
+<div class="main" id="main"></div>
+
+<div class="footer">
+  本頁面為 AAPD 課程回饋整理，僅供學員與相關人員參考。
+</div>
+
+<script>
+const SM = {
+  s1: { label:'3/14 (六)', registered:40, attended:35, responses:21, color:'#534AB7', track:'#EEEDFE' },
+  s2: { label:'3/21 (六)', registered:40, attended:29, responses:22, color:'#1D9E75', track:'#E1F5EE' },
+  s3: { label:'5/9 (六)',  registered:40, attended:33, responses:19, color:'#D85A30', track:'#FAECE7' }
+};
+const DATA = {
+  all: {
+    label:'全部場次', responses:62, overall:4.22, recommend_avg:7.76,
+    scores:{ '課程流程與節奏':3.98, '講師互動與回饋':4.47, 'AI 建立設計系統':4.39, 'AI 定義 Design Token':4.27, 'Figma Make 實作':4.0 },
+    nps:[12,32,18], dist:[0,1,8,27,26], consent:84, full_attend:89,
+    purpose:{ '想搞懂 Token 從設計端落地':55, '想知道設計開發協作更順':40, '想知道 Figma Make 情境':38, '想寫出有效 Prompt':34 },
+    likes:['課程內容實用，可以應用在工作中','流程講解非常完整，從起手式到落地都講解的非常清楚','分享的所有知識點都很有價值','Figjam 編排得很好，步驟區塊分的很有架構好讀'],
+    improve:['AI 點數、教育帳號限制較多，老師說明節奏稍快，容易跟不上','課程節奏偏快，實作練習有連動關係，建議調整時間分配','課程後段偏 what 而非 why & how，助教收尾專業度建議提升','整體節奏掌握可再優化，特別是 Figma 教育版申請環節'],
+    extra:['如果分成早午兩堂可能更充實，有更多實操和消化時間','謝謝講師教材整理得很用心']
+  },
+  s1: {
+    label:'3/14 第一場', responses:21, overall:3.89, recommend_avg:7.43,
+    scores:{ '課程流程與節奏':3.62, '講師互動與回饋':4.19, 'AI 建立設計系統':4.14, 'AI 定義 Design Token':3.95, 'Figma Make 實作':3.57 },
+    nps:[6,9,6], dist:[0,1,4,9,7], consent:76, full_attend:86,
+    purpose:{ '想搞懂 Token 從設計端落地':19, '想知道設計開發協作更順':14, '想知道 Figma Make 情境':14, '想寫出有效 Prompt':10 },
+    likes:['課程內容實用，可以應用在工作中','流程講解非常完整，從起手式到落地都很清楚','分享的所有知識點都很有價值'],
+    improve:['AI 點數、教育帳號限制多，節奏快不好跟','每個實作之間有連動，前一步未完成就直接進入下一個，容易跟不上','課程體驗後段偏 what 而非 why & how，助教收尾建議再提升','Figma 教育版申請流程、API key 步驟可加強說明'],
+    extra:['如果分成早午兩堂，放慢節奏，多點實操和消化時間更好','謝謝講師教材整理得很用心']
+  },
+  s2: {
+    label:'3/21 第二場', responses:22, overall:4.45, recommend_avg:8.0,
+    scores:{ '課程流程與節奏':4.23, '講師互動與回饋':4.64, 'AI 建立設計系統':4.55, 'AI 定義 Design Token':4.59, 'Figma Make 實作':4.23 },
+    nps:[3,13,6], dist:[0,0,1,10,11], consent:86, full_attend:86,
+    purpose:{ '想搞懂 Token 從設計端落地':19, '想知道設計開發協作更順':15, '想寫出有效 Prompt':14, '想知道 Figma Make 情境':12 },
+    likes:['老師講解很好懂，不怕能力差跟不上，課程拆解得很細','Harry 老師課程非常紮實，從 0 到 1 帶完整個流程','節奏稍快，但老師即時回覆各種問題，能夠一起跑完最後環節','老師整理的 Prompt 很好用，前段設計系統練習很有幫助'],
+    improve:['老師語速可以稍慢一點','前段設計系統說明內容與 AAPD 其他課程有些重疊，期待有更多新內容'],
+    extra:['這是我第一次上老師的課，教得很仔細又清楚，非常感謝！','老師辛苦了，收穫滿滿的一堂課！','感謝老師和 AAPD 團隊的用心！']
+  },
+  s3: {
+    label:'5/9 第三場', responses:19, overall:4.33, recommend_avg:7.84,
+    scores:{ '課程流程與節奏':4.11, '講師互動與回饋':4.58, 'AI 建立設計系統':4.47, 'AI 定義 Design Token':4.26, 'Figma Make 實作':4.21 },
+    nps:[3,10,6], dist:[0,0,3,8,8], consent:89, full_attend:95,
+    purpose:{ '想搞懂 Token 從設計端落地':17, '想知道 Figma Make 情境':12, '想知道設計開發協作更順':11, '想寫出有效 Prompt':10 },
+    likes:['課程內容實用，老師說明很仔細','Figjam 編排清晰，步驟區塊結構好讀，自己實作時沒有遇到太大問題','老師是真的懂且會實作，課程設計貼心，有人性的溫度','內容很扎實，Q&A 耐心回覆完畢'],
+    improve:['教育權限開通說明不夠詳細，應用到職場的實用性不明確','建立之後的後續維護與協作部分著墨太少','批改課堂作業可交給助手，節省課程時間'],
+    extra:['感謝老師用心安排，有搭配影片讓學員複習很棒','謝謝講師很有耐心地解決大家的問題，也謝謝助教即時處理狀況']
+  }
+};
+
+function nps(arr) { const t=arr[0]+arr[1]+arr[2]; return Math.round((arr[2]-arr[0])/t*100); }
+function pct(a,b) { return Math.round(a/b*100); }
+
+function funnelBlock(key) {
+  if (key === 'all') {
+    const totalReg=120, totalAtt=97, totalResp=62;
+    return `
+      <div class="section-label">參與與填寫概況</div>
+      <div class="funnel-card">
+        <div class="funnel-all-row" style="margin-bottom:16px;">
+          <div class="funnel-all-item"><div class="funnel-all-num" style="color:var(--purple);">${totalReg}</div><div class="funnel-all-sub">報名人數</div></div>
+          <div class="funnel-all-item"><div class="funnel-all-num" style="color:var(--green);">${totalAtt}</div><div class="funnel-all-sub">實際出席｜${pct(totalAtt,totalReg)}%</div></div>
+          <div class="funnel-all-item"><div class="funnel-all-num">${totalResp}</div><div class="funnel-all-sub">問卷回填｜${pct(totalResp,totalAtt)}%（出席者）</div></div>
+        </div>
+        <div class="funnel-divider"></div>
+        <div class="funnel-sessions">
+          ${['s1','s2','s3'].map(sid=>{
+            const m=SM[sid];
+            return `<div>
+              <div class="funnel-session-label">${m.label}</div>
+              <div class="funnel-bar-row">
+                <div class="funnel-bar-label">報名</div>
+                <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:100%;background:${m.color};opacity:0.2;"></div></div>
+                <div class="funnel-bar-val">${m.registered}</div>
+              </div>
+              <div class="funnel-bar-row">
+                <div class="funnel-bar-label">出席</div>
+                <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:${pct(m.attended,m.registered)}%;background:${m.color};opacity:0.5;"></div></div>
+                <div class="funnel-bar-val">${m.attended}</div>
+              </div>
+              <div class="funnel-bar-row">
+                <div class="funnel-bar-label">填問卷</div>
+                <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:${pct(m.responses,m.registered)}%;background:${m.color};"></div></div>
+                <div class="funnel-bar-val">${m.responses}</div>
+              </div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+  }
+  const m = SM[key];
+  return `
+    <div class="section-label">參與與填寫概況</div>
+    <div class="funnel-card">
+      <div class="funnel-all-row" style="margin-bottom:16px;">
+        <div class="funnel-all-item"><div class="funnel-all-num" style="color:var(--purple);">${m.registered}</div><div class="funnel-all-sub">報名人數</div></div>
+        <div class="funnel-all-item"><div class="funnel-all-num" style="color:var(--green);">${m.attended}</div><div class="funnel-all-sub">實際出席｜${pct(m.attended,m.registered)}%</div></div>
+        <div class="funnel-all-item"><div class="funnel-all-num">${m.responses}</div><div class="funnel-all-sub">問卷回填｜${pct(m.responses,m.attended)}%（出席者）</div></div>
+      </div>
+      <div class="funnel-bar-row">
+        <div class="funnel-bar-label">報名</div>
+        <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:100%;background:${m.color};opacity:0.2;"></div></div>
+        <div class="funnel-bar-val">${m.registered}</div>
+      </div>
+      <div class="funnel-bar-row">
+        <div class="funnel-bar-label">出席</div>
+        <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:${pct(m.attended,m.registered)}%;background:${m.color};opacity:0.5;"></div></div>
+        <div class="funnel-bar-val">${m.attended}</div>
+      </div>
+      <div class="funnel-bar-row">
+        <div class="funnel-bar-label">填問卷</div>
+        <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:${pct(m.responses,m.registered)}%;background:${m.color};"></div></div>
+        <div class="funnel-bar-val">${m.responses}</div>
+      </div>
+    </div>`;
+}
+
+function npsBlock(d) {
+  const total = d.nps[0]+d.nps[1]+d.nps[2];
+  const npsVal = nps(d.nps);
+  const proP = pct(d.nps[2],total), pasP = pct(d.nps[1],total), detP = pct(d.nps[0],total);
+  return `
+    <div class="cc-title">NPS 推薦分析</div>
+    <div class="nps-nums">
+      <div class="nps-item"><div class="nps-item-label">NPS 分數</div><div class="nps-item-val" style="color:var(--purple);">${npsVal>=0?'+':''}${npsVal}</div></div>
+      <div class="nps-item"><div class="nps-item-label" style="color:var(--green);">推薦者 9–10</div><div class="nps-item-val" style="color:var(--green);">${d.nps[2]}</div></div>
+      <div class="nps-item"><div class="nps-item-label" style="color:var(--amber);">被動者 7–8</div><div class="nps-item-val" style="color:var(--amber);">${d.nps[1]}</div></div>
+      <div class="nps-item"><div class="nps-item-label" style="color:var(--red);">批評者 ≤6</div><div class="nps-item-val" style="color:var(--red);">${d.nps[0]}</div></div>
+    </div>
+    <div class="nps-bar-wrap">
+      <div class="nps-seg" style="width:${detP}%;background:var(--red-light);"></div>
+      <div class="nps-seg" style="width:${pasP}%;background:var(--amber-light);"></div>
+      <div class="nps-seg" style="width:${proP}%;background:var(--green-light);"></div>
+    </div>
+    <div class="nps-seg-labels">
+      <span class="nps-seg-label" style="color:var(--red);">批評者 ${detP}%</span>
+      <span class="nps-seg-label" style="color:var(--amber);">被動者 ${pasP}%</span>
+      <span class="nps-seg-label" style="color:var(--green);">推薦者 ${proP}%</span>
+    </div>
+    <div class="nps-explain">
+      <strong>什麼是 NPS？</strong>「你有多可能推薦這堂課？（0–10 分）」<br>
+      <div class="nps-chips">
+        <span class="chip chip-g">9–10 推薦者</span>
+        <span class="chip chip-a">7–8 被動者</span>
+        <span class="chip chip-r">0–6 批評者</span>
+      </div>
+      <div class="nps-formula">NPS = 推薦者% − 批評者% = ${proP}% − ${detP}% = ${npsVal>=0?'+':''}${npsVal}</div>
+      分數範圍 −100 至 +100，0 以上為正向，+50 以上優秀。
+    </div>`;
+}
+
+function render(key) {
+  const d = DATA[key];
+  const distMax = Math.max(...d.dist);
+  const distLabels = ['1★','2★','3★','4★','5★'];
+  const purpMax = Math.max(...Object.values(d.purpose));
+
+  document.getElementById('main').innerHTML = `
+    ${funnelBlock(key)}
+
+    <div class="section-label">整體指標</div>
+    <div class="metrics-row">
+      <div class="mc"><div class="mc-label">回填人數</div><div class="mc-val">${d.responses}<span> 份</span></div><div class="mc-sub">完整參與 ${d.full_attend}%</div></div>
+      <div class="mc"><div class="mc-label">課程平均評分</div><div class="mc-val">${d.overall.toFixed(2)}<span> / 5</span></div><div class="mc-sub" style="color:#EF9F27;">${'★'.repeat(Math.round(d.overall))}${'☆'.repeat(5-Math.round(d.overall))}</div></div>
+      <div class="mc"><div class="mc-label">推薦意願</div><div class="mc-val">${d.recommend_avg.toFixed(1)}<span> / 10</span></div><div class="mc-sub">NPS ${nps(d.nps)>=0?'+':''}${nps(d.nps)}</div></div>
+      <div class="mc"><div class="mc-label">同意公開回饋</div><div class="mc-val">${d.consent}<span>%</span></div><div class="mc-sub">${Math.round(d.responses*d.consent/100)} 位同意</div></div>
+    </div>
+
+    <div class="two-col">
+      <div class="cc">
+        <div class="cc-title">各項評分細項</div>
+        ${Object.entries(d.scores).map(([l,v])=>`
+          <div class="score-row">
+            <div class="score-label">${l}</div>
+            <div class="score-track"><div class="score-fill" style="width:${v/5*100}%;"></div></div>
+            <div class="score-val">${v.toFixed(1)}</div>
+          </div>`).join('')}
+      </div>
+      <div>
+        <div class="cc" style="margin-bottom:14px;">
+          <div class="cc-title">整體評分分佈</div>
+          ${d.dist.map((v,i)=>`
+            <div class="dist-row">
+              <div class="dist-label">${distLabels[i]}</div>
+              <div class="dist-track"><div class="dist-fill" style="width:${distMax?(v/distMax*100):0}%;"></div></div>
+              <div class="dist-count">${v}</div>
+            </div>`).join('')}
+        </div>
+        <div class="cc">${npsBlock(d)}</div>
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:14px;">
+      <div class="cc">
+        <div class="cc-title">報名主要目的</div>
+        ${Object.entries(d.purpose).map(([l,c])=>`
+          <div class="purpose-row">
+            <div class="purpose-label">${l}</div>
+            <div class="purpose-track"><div class="purpose-fill" style="width:${c/purpMax*100}%;"></div></div>
+            <div class="purpose-cnt">${c}</div>
+          </div>`).join('')}
+      </div>
+      <div class="cc">
+        <div class="cc-title">課程亮點</div>
+        <div style="margin-bottom:14px;">${d.likes.map(l=>`<span class="tag tag-g">${l.length>28?l.slice(0,26)+'…':l}</span>`).join('')}</div>
+        <div class="cc-title">改善建議</div>
+        ${d.improve.map(i=>`<span class="tag tag-a">${i.length>28?i.slice(0,26)+'…':i}</span>`).join('')}
+      </div>
+    </div>
+
+    <div class="section-label">學員完整回饋</div>
+    <div class="two-col">
+      <div>
+        <div style="font-size:12px;font-weight:500;color:var(--text-2);margin-bottom:10px;">最喜歡的部分</div>
+        ${d.likes.map(l=>`<div class="comment-card"><span class="comment-badge">${d.label}</span><p class="comment-text">${l}</p></div>`).join('')}
+        ${d.extra.length?`
+          <div style="font-size:12px;font-weight:500;color:var(--text-2);margin:14px 0 10px;">給講師的話</div>
+          ${d.extra.map(e=>`<div class="comment-card"><p class="comment-text">${e}</p></div>`).join('')}`:''}
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:500;color:var(--text-2);margin-bottom:10px;">改善建議</div>
+        ${d.improve.map(i=>`<div class="improve-card"><p class="improve-text">${i}</p></div>`).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function switchTab(btn, key) {
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  render(key);
+}
+
+render('all');
+</script>
+</body>
+</html>
