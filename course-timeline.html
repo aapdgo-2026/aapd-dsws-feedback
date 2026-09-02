@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>課程開賣時程軸</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --ground:#FCFCFB;
+  --surface:#FFFFFF;
+  --ink:#1A1D1B;
+  --ink-2:#5C625E;
+  --ink-3:#8B918D;
+  --line:#E3E6E3;
+  --line-2:#EFF1EF;
+  --accent:#1D6B5F;
+  --accent-2:#12463E;
+  --accent-soft:#E2EFEB;
+  --past:#D6DAD7;
+  --radius:6px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#191919; --surface:#202120;
+    --ink:#EAEAE7; --ink-2:#A2A8A4; --ink-3:#767C79;
+    --line:#333532; --line-2:#282A27;
+    --accent:#5FB3A0; --accent-2:#8FD2C1; --accent-soft:#1D322D;
+    --past:#3A3D3A;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#191919; --surface:#202120;
+  --ink:#EAEAE7; --ink-2:#A2A8A4; --ink-3:#767C79;
+  --line:#333532; --line-2:#282A27;
+  --accent:#5FB3A0; --accent-2:#8FD2C1; --accent-soft:#1D322D;
+  --past:#3A3D3A;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Noto Sans TC",-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:880px;margin:0 auto;padding:24px 20px 30px;display:flex;flex-direction:column;gap:18px}
+
+/* header */
+.head{display:flex;flex-direction:column;gap:7px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+h1{font-size:20px;line-height:1.3;margin:0;font-weight:700;letter-spacing:-.01em}
+.sub{color:var(--ink-2);font-size:12px;margin:0}
+
+.controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 14px;
+  padding:12px 14px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+.field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.field label{font-size:10px;letter-spacing:.08em;color:var(--ink-3);font-family:"IBM Plex Mono",monospace;text-transform:uppercase}
+input[type=date],input[type=text]{font:inherit;font-size:13px;color:var(--ink);background:var(--ground);
+  border:1px solid var(--line);border-radius:5px;padding:5px 8px;min-width:0}
+input[type=date]{font-family:"IBM Plex Mono",monospace}
+input[type=text]{width:180px}
+input:focus-visible{outline:2px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.spacer{flex:1 1 auto}
+button{font:inherit;font-size:12px;cursor:pointer;color:var(--ink-2);background:var(--ground);
+  border:1px solid var(--line);border-radius:5px;padding:5px 11px;transition:border-color .15s,color .15s}
+button:hover{border-color:var(--ink-3);color:var(--ink)}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+
+/* status */
+.status{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;
+  padding:11px 14px;border-radius:var(--radius);background:var(--accent-soft)}
+.status .now{font-size:15px;font-weight:700;color:var(--accent-2)}
+.status .meta{font-size:12px;color:var(--ink-2)}
+.status .meta b{font-weight:600;color:var(--ink)}
+
+/* axis */
+.scroll{overflow-x:auto;overflow-y:hidden;padding:6px 0 2px;margin:0 -4px}
+.axis{position:relative;height:214px;min-width:760px;margin:0 34px}
+
+.track{position:absolute;left:0;right:0;top:52px;height:4px;border-radius:2px;background:var(--line);overflow:hidden}
+.seg{position:absolute;top:0;height:100%}
+.seg.done{background:var(--past)}
+.seg.live{background:var(--accent)}
+
+.node{position:absolute;top:48px;width:12px;height:12px;margin-left:-6px;border-radius:50%;
+  background:var(--ground);border:2px solid var(--line);z-index:2}
+.node.done{background:var(--past);border-color:var(--past)}
+.node.live{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.node.next{border-color:var(--accent)}
+
+.col{position:absolute;top:0;height:100%;width:76px;margin-left:-38px;
+  display:flex;flex-direction:column;align-items:center;text-align:center}
+.up{height:48px;display:flex;flex-direction:column;justify-content:flex-end;gap:1px}
+.dval{font-family:"IBM Plex Mono",monospace;font-size:10px;letter-spacing:.02em;color:var(--ink-3);white-space:nowrap}
+.date{font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:500;letter-spacing:-.02em;color:var(--ink-2);white-space:nowrap}
+.down{margin-top:22px;display:flex;flex-direction:column;align-items:center;gap:7px;min-width:0}
+.name{writing-mode:vertical-rl;text-orientation:upright;letter-spacing:.06em;
+  font-size:12.5px;line-height:1.35;color:var(--ink-2);white-space:nowrap}
+.wd{font-size:10px;color:var(--ink-3);white-space:nowrap}
+.delta{font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--ink-3);white-space:nowrap}
+
+.col.done .date{color:var(--ink-3)}
+.col.done .name{color:var(--ink-3)}
+.col.future .date,.col.future .name{color:var(--ink-3)}
+.col.live .date{color:var(--accent-2);font-weight:600;font-size:15px}
+.col.live .dval{color:var(--accent-2)}
+.col.live .name{color:var(--accent-2);font-weight:700;font-size:13px}
+.col.live .delta{color:var(--accent-2);font-weight:500}
+
+.today{position:absolute;top:24px;height:48px;width:1px;background:var(--accent);z-index:3}
+.today::after{content:"今天";position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.08em;
+  color:var(--accent-2);white-space:nowrap}
+
+/* footer */
+.stats{display:flex;flex-wrap:wrap;gap:8px 24px;padding-top:14px;border-top:1px solid var(--line-2)}
+.stat{display:flex;flex-direction:column;gap:1px}
+.stat .k{font-size:10px;letter-spacing:.1em;color:var(--ink-3);font-family:"IBM Plex Mono",monospace;text-transform:uppercase}
+.stat .v{font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:500}
+
+details{border-top:1px solid var(--line-2);padding-top:12px}
+summary{cursor:pointer;font-size:12px;color:var(--ink-2);list-style:none;display:flex;align-items:center;gap:6px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font-family:"IBM Plex Mono",monospace;color:var(--ink-3)}
+details[open] summary::before{content:"−"}
+.embed{margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.embed .link{display:flex;gap:8px;align-items:center}
+.embed input{flex:1;font-family:"IBM Plex Mono",monospace;font-size:11.5px;width:auto}
+.embed ol{margin:0;padding-left:18px;font-size:12px;color:var(--ink-2);line-height:1.9}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--ink);
+  color:var(--ground);font-size:12px;padding:7px 14px;border-radius:20px;z-index:9}
+@media (prefers-reduced-motion:no-preference){.toast{animation:pop .2s ease-out}}
+@keyframes pop{from{opacity:0;transform:translate(-50%,6px)}to{opacity:1;transform:translate(-50%,0)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <div class="eyebrow">Course Ops · 自動追蹤</div>
+    <h1 id="title">課程開賣時程軸</h1>
+    <p class="sub">輸入課程當日，自動回推 9 個節點；節點依實際天數等比排列，每天依「今天」重新標記所在區段。</p>
+  </header>
+
+  <div class="controls">
+    <div class="field">
+      <label for="d0">課程當日 D0</label>
+      <input type="date" id="d0">
+    </div>
+    <div class="field">
+      <label for="nm">場次名稱（選填）</label>
+      <input type="text" id="nm" placeholder="例：11/21 實戰營">
+    </div>
+    <div class="spacer"></div>
+    <button id="themeBtn" type="button">主題：自動</button>
+  </div>
+
+  <div class="status">
+    <span class="now" id="nowPhase">—</span>
+    <span class="meta" id="nowMeta"></span>
+  </div>
+
+  <div class="scroll"><div class="axis" id="axis"></div></div>
+
+  <div class="stats" id="stats"></div>
+
+  <details>
+    <summary>嵌入到 Notion</summary>
+    <div class="embed">
+      <div class="link">
+        <input type="text" id="linkOut" readonly>
+        <button id="copyBtn" type="button">複製</button>
+      </div>
+      <ol>
+        <li>複製上面這條連結（已包含你設定的日期與場次名稱）。</li>
+        <li>在 Notion 輸入 <code>/embed</code>，貼上連結後按 Embed link。</li>
+        <li>拖曳邊框調整高度。之後每天打開，目前區段都會自動更新。</li>
+      </ol>
+    </div>
+  </details>
+</div>
+
+<div class="toast" id="toast" hidden>已複製連結</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var PHASES=[
+    {n:"加開決策討論",   off:-60, lab:"− D60"},
+    {n:"開賣前準備",     off:-50, lab:"− D50"},
+    {n:"開賣與招生當天", off:-45, lab:"− D45"},
+    {n:"結束販售前7天",  off:-20, lab:"− D20"},
+    {n:"結束販售",       off:-14, lab:"− D14"},
+    {n:"開課前準備",     off:-7,  lab:"− D7"},
+    {n:"課程當日",       off:0,   lab:"D0"},
+    {n:"課後結案",       off:7,   lab:"+D1~D7"},
+    {n:"回顧與優化",     off:14,  lab:"+D7~D14"}
+  ];
+  var FIRST=PHASES[0].off, LAST=PHASES[PHASES.length-1].off, SPAN=LAST-FIRST;
+  var WD=["日","一","二","三","四","五","六"], DAY=86400000;
+
+  var $=function(id){return document.getElementById(id);};
+  var d0El=$("d0"), nmEl=$("nm"), axisEl=$("axis"), statsEl=$("stats"),
+      linkEl=$("linkOut"), themeBtn=$("themeBtn");
+
+  function store(k,v){ try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v);}catch(e){} return null; }
+  function parseISO(s){ var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||""); if(!m) return null;
+    var d=new Date(+m[1],+m[2]-1,+m[3]); return isNaN(d)?null:d; }
+  function iso(d){ var p=function(x){return (x<10?"0":"")+x;};
+    return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate()); }
+  function add(d,n){ var x=new Date(d.getFullYear(),d.getMonth(),d.getDate()); x.setDate(x.getDate()+n); return x; }
+  function md(d){ return (d.getMonth()+1)+"/"+d.getDate(); }
+  function today(){ var t=new Date(); return new Date(t.getFullYear(),t.getMonth(),t.getDate()); }
+  function diffDays(a,b){ return Math.round((a-b)/DAY); }
+  function pct(off){ return (off-FIRST)/SPAN*100; }
+  function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;"); }
+
+  var qs=new URLSearchParams((location.search||"").slice(1)+"&"+(location.hash||"").slice(1));
+  var state={
+    d0: parseISO(qs.get("d")) || parseISO(store("ct.d0")) || new Date(2026,10,21),
+    name: qs.get("n") || store("ct.name") || "",
+    theme: qs.get("t") || store("ct.theme") || "auto"
+  };
+
+  var THEMES=["auto","light","dark"], TL={auto:"自動",light:"淺色",dark:"深色"};
+  function applyTheme(){
+    if(state.theme==="auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme",state.theme);
+    themeBtn.textContent="主題："+TL[state.theme];
+  }
+
+  function render(){
+    var t=today(), base=state.d0;
+    var rows=PHASES.map(function(p){
+      var d=add(base,p.off);
+      return {p:p, date:d, delta:diffDays(d,t)};
+    });
+
+    var cur=-1;
+    if(t>=rows[0].date && t<=rows[rows.length-1].date){
+      for(var i=0;i<rows.length;i++){ if(rows[i].date<=t) cur=i; }
+    }
+    var before=t<rows[0].date, after=t>rows[rows.length-1].date;
+
+    /* status */
+    var pre = state.name ? esc(state.name)+" · " : "";
+    var np=$("nowPhase"), nm=$("nowMeta");
+    if(before){
+      np.textContent="尚未進入時程";
+      nm.innerHTML=pre+"距離「"+PHASES[0].n+"」還有 <b>"+rows[0].delta+"</b> 天（"+md(rows[0].date)+"）";
+    }else if(after){
+      np.textContent="全案已結束";
+      nm.innerHTML=pre+"最後一個節點在 <b>"+diffDays(t,rows[rows.length-1].date)+"</b> 天前（"+md(rows[rows.length-1].date)+"）";
+    }else{
+      np.textContent=PHASES[cur].n;
+      var nx=rows[cur+1];
+      nm.innerHTML=pre+"今天 "+md(t)+"（週"+WD[t.getDay()]+"）"+
+        (nx?" · 距離「"+PHASES[cur+1].n+"」還有 <b>"+nx.delta+"</b> 天":"")+
+        " · 距課程當日 <b>"+Math.abs(rows[6].delta)+"</b> 天"+(rows[6].delta<0?"（已開課）":"");
+    }
+    $("title").textContent = state.name ? state.name+"　時程軸" : "課程開賣時程軸";
+
+    /* axis */
+    var h='<div class="track">';
+    for(var s=0;s<rows.length-1;s++){
+      var a=pct(PHASES[s].off), b=pct(PHASES[s+1].off);
+      var c = after ? "done" : (s<cur ? "done" : (s===cur ? "live" : ""));
+      if(c) h+='<div class="seg '+c+'" style="left:'+a+'%;width:'+(b-a)+'%"></div>';
+    }
+    h+='</div>';
+
+    rows.forEach(function(r,i){
+      var st = (after||r.date<t) ? "done" : (i===cur ? "live" : "future");
+      var nodeCls = st==="done" ? "done" : (st==="live" ? "live" : (before&&i===0 ? "next" : ""));
+      var dl = r.delta===0 ? "今天" : (r.delta>0 ? "+"+r.delta+" 天" : "−"+(-r.delta)+" 天");
+      var L=pct(r.p.off);
+      h+='<div class="node '+nodeCls+'" style="left:'+L+'%"></div>'+
+         '<div class="col '+st+'" style="left:'+L+'%">'+
+           '<div class="up"><span class="dval">'+r.p.lab+'</span><span class="date">'+md(r.date)+'</span></div>'+
+           '<div class="down"><span class="name">'+r.p.n+'</span>'+
+             '<span class="wd">週'+WD[r.date.getDay()]+'</span>'+
+             '<span class="delta">'+dl+'</span>'+
+           '</div>'+
+         '</div>';
+    });
+    if(!before && !after) h+='<div class="today" style="left:'+pct(diffDays(t,base))+'%"></div>';
+    axisEl.innerHTML=h;
+
+    /* stats */
+    var ss=rows[2].date, se=rows[4].date;
+    statsEl.innerHTML=[
+      ["總時程", SPAN+" 天"],
+      ["販售期", diffDays(se,ss)+" 天（"+md(ss)+"–"+md(se)+"）"],
+      ["開賣日", md(ss)+" 週"+WD[ss.getDay()]],
+      ["課程當日", md(rows[6].date)+" 週"+WD[rows[6].date.getDay()]]
+    ].map(function(p){
+      return '<div class="stat"><span class="k">'+p[0]+'</span><span class="v">'+p[1]+'</span></div>';
+    }).join("");
+
+    linkEl.value=location.origin+location.pathname+"?d="+iso(state.d0)+
+      (state.name?"&n="+encodeURIComponent(state.name):"")+
+      (state.theme!=="auto"?"&t="+state.theme:"");
+  }
+
+  d0El.value=iso(state.d0); nmEl.value=state.name;
+  applyTheme(); render();
+
+  d0El.addEventListener("change",function(){
+    var d=parseISO(d0El.value); if(!d) return;
+    state.d0=d; store("ct.d0",iso(d)); render();
+  });
+  nmEl.addEventListener("input",function(){
+    state.name=nmEl.value.trim(); store("ct.name",state.name); render();
+  });
+  themeBtn.addEventListener("click",function(){
+    state.theme=THEMES[(THEMES.indexOf(state.theme)+1)%3];
+    store("ct.theme",state.theme); applyTheme(); render();
+  });
+
+  var toast=$("toast"), tid;
+  function flash(m){ toast.textContent=m; toast.hidden=false; clearTimeout(tid); tid=setTimeout(function(){toast.hidden=true;},1600); }
+  $("copyBtn").addEventListener("click",function(){
+    linkEl.select(); var ok=false;
+    try{ ok=document.execCommand("copy"); }catch(e){}
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(linkEl.value).then(function(){flash("已複製連結");},function(){ if(!ok) flash("請手動複製上方連結"); });
+    }else{ flash(ok?"已複製連結":"請手動複製上方連結"); }
+  });
+
+  function midnight(){
+    var n=new Date(), nx=new Date(n.getFullYear(),n.getMonth(),n.getDate()+1,0,0,30);
+    setTimeout(function(){ render(); midnight(); }, nx-n);
+  }
+  midnight();
+  document.addEventListener("visibilitychange",function(){ if(!document.hidden) render(); });
+})();
+</script>
+</body>
+</html>
