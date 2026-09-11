@@ -1,425 +1,569 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-Hant-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>課程回饋｜新手也懂的設計系統 AI 工作流 — AAPD DSWS</title>
-<meta name="description" content="AAPD 新手也懂的設計系統 AI 工作流直播工作坊｜三場次學員滿意度回饋整理">
-<meta property="og:title" content="課程回饋｜設計系統 AI 工作流 — AAPD DSWS">
-<meta property="og:description" content="62 位學員回饋整理，涵蓋評分、NPS、亮點與改善建議">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>新手也懂的設計系統 AI 工作流｜學員回饋</title>
+<meta name="description" content="AAPD「新手也懂的設計系統 AI 工作流」四個場次的學員滿意度、NPS 與文字回饋整理。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="新手也懂的設計系統 AI 工作流｜學員回饋">
+<meta property="og:description" content="AAPD「新手也懂的設計系統 AI 工作流」四個場次的學員滿意度、NPS 與文字回饋整理。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap">
 <style>
-  :root {
-    --purple: #534AB7;
-    --purple-light: #EEEDFE;
-    --purple-mid: #AFA9EC;
-    --green: #1D9E75;
-    --green-light: #E1F5EE;
-    --coral: #D85A30;
-    --coral-light: #FAECE7;
-    --amber: #BA7517;
-    --amber-light: #FAEEDA;
-    --red: #A32D2D;
-    --red-light: #FCEBEB;
-    --text: #1a1a1a;
-    --text-2: #555;
-    --text-3: #888;
-    --border: rgba(0,0,0,0.08);
-    --bg: #f7f6f3;
-    --card: #ffffff;
-    --radius: 12px;
-    --radius-sm: 8px;
+:root{
+  --bg:#f7f6f3; --card:#ffffff; --sunk:#efeee9; --ink:#1c1b22; --ink-2:#4f4d57; --ink-3:#86848d;
+  --line:rgba(40,36,70,.09); --accent:#534AB7; --accent-soft:#EEEDFE;
+  --s1:#534AB7; --s2:#1D9E75; --s3:#D85A30; --s4:#d9a400;
+  --good:#1D9E75; --good-soft:#E1F5EE; --warn:#BA7517; --warn-soft:#FAEEDA; --bad:#A32D2D; --bad-soft:#FCEBEB;
+  --tip-bg:#1c1b22; --tip-ink:#fff;
+  --mono:'DM Mono',ui-monospace,Menlo,monospace;
+  --sans:'Noto Sans TC','PingFang TC','Microsoft JhengHei',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#16151a; --card:#1f1e24; --sunk:#2a2930; --ink:#f1f0f5; --ink-2:#c3c1cc; --ink-3:#8d8b97;
+    --line:rgba(255,255,255,.08); --accent:#8f87ea; --accent-soft:#2b2848;
+    --s1:#8277e0; --s2:#189a70; --s3:#e35d5a; --s4:#bf9a12;
+    --good:#3fc295; --good-soft:#173a2f; --warn:#e0a346; --warn-soft:#3b2d15; --bad:#ee7b7b; --bad-soft:#3d1f22;
+    --tip-bg:#f1f0f5; --tip-ink:#16151a;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans TC', sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.6; }
+}
+:root[data-theme="dark"]{
+  --bg:#16151a; --card:#1f1e24; --sunk:#2a2930; --ink:#f1f0f5; --ink-2:#c3c1cc; --ink-3:#8d8b97;
+  --line:rgba(255,255,255,.08); --accent:#8f87ea; --accent-soft:#2b2848;
+  --s1:#8277e0; --s2:#189a70; --s3:#e35d5a; --s4:#bf9a12;
+  --good:#3fc295; --good-soft:#173a2f; --warn:#e0a346; --warn-soft:#3b2d15; --bad:#ee7b7b; --bad-soft:#3d1f22;
+  --tip-bg:#f1f0f5; --tip-ink:#16151a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{margin:0;font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:980px;margin:0 auto;padding-inline:20px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
 
-  /* HEADER */
-  .header { background: var(--card); border-bottom: 1px solid var(--border); padding: 0 24px; }
-  .header-inner { max-width: 900px; margin: 0 auto; padding: 20px 0 16px; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .header-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--purple-light); color: var(--purple); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.04em; margin-bottom: 8px; }
-  .header-title { font-size: 20px; font-weight: 600; color: var(--text); line-height: 1.3; }
-  .header-sub { font-size: 13px; color: var(--text-3); margin-top: 4px; }
-  .header-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex-shrink: 0; }
-  .header-stat { text-align: right; }
-  .header-stat-num { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; color: var(--purple); }
-  .header-stat-label { font-size: 11px; color: var(--text-3); }
+/* header */
+header{background:var(--card);border-bottom:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;padding-block:26px 20px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+h1{font-size:24px;font-weight:700;line-height:1.3;margin-top:6px;text-wrap:balance}
+.sub{font-size:13px;color:var(--ink-3);margin-top:4px}
+.head-stats{display:flex;gap:28px}
+.hs b{display:block;font-family:var(--mono);font-size:26px;font-weight:500;line-height:1.1}
+.hs span{font-size:11px;color:var(--ink-3)}
 
-  /* TABS */
-  .tab-wrap { background: var(--card); border-bottom: 1px solid var(--border); padding: 0 24px; position: sticky; top: 0; z-index: 10; }
-  .tab-inner { max-width: 900px; margin: 0 auto; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
-  .tab-inner::-webkit-scrollbar { display: none; }
-  .tab-btn { padding: 14px 18px; font-size: 13px; font-weight: 500; color: var(--text-3); border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; font-family: 'Noto Sans TC', sans-serif; transition: all 0.15s; }
-  .tab-btn:hover { color: var(--text); }
-  .tab-btn.active { color: var(--purple); border-bottom-color: var(--purple); }
+/* tabs */
+nav{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.tabs{display:flex;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{display:flex;align-items:center;gap:7px;padding:13px 16px;border:0;background:none;font:500 13px var(--sans);color:var(--ink-3);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
+.tab:focus-visible,.scard:focus-visible,.more:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
 
-  /* MAIN */
-  .main { max-width: 900px; margin: 0 auto; padding: 24px; }
+main{padding-block:26px 40px}
+.sec{margin-top:34px}
+.sec:first-child{margin-top:0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.sec-h h2{font-size:15px;font-weight:700}
+.sec-h p{font-size:12px;color:var(--ink-3)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stack{display:grid;gap:14px;align-content:start}
+.ptitle{font-size:13px;font-weight:700;margin-bottom:14px}
+.ptitle small{font-weight:400;color:var(--ink-3);margin-left:6px}
 
-  /* SECTION */
-  .section-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin: 28px 0 12px; }
-  .section-label:first-child { margin-top: 0; }
+/* session cards */
+.scards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.scard{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;cursor:pointer;font-family:var(--sans);color:var(--ink);display:grid;gap:10px;border-top:3px solid var(--c)}
+.scard:hover{border-color:var(--c)}
+.scard-top{display:flex;justify-content:space-between;align-items:baseline}
+.scard-date{font-weight:700;font-size:15px}
+.scard-n{font-size:11px;color:var(--ink-3)}
+.scard-row{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--ink-2)}
+.scard-row b{font-family:var(--mono);font-weight:500;font-size:18px;color:var(--ink)}
+.pill{font:500 11px var(--mono);padding:1px 8px;border-radius:20px}
+.pill.good{background:var(--good-soft);color:var(--good)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
 
-  /* METRIC CARDS */
-  .metrics-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
-  .mc { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; }
-  .mc-label { font-size: 11px; color: var(--text-3); margin-bottom: 6px; }
-  .mc-val { font-family: 'DM Mono', monospace; font-size: 28px; font-weight: 500; color: var(--text); line-height: 1; }
-  .mc-val span { font-size: 13px; color: var(--text-3); font-family: 'Noto Sans TC', sans-serif; }
-  .mc-sub { font-size: 11px; color: var(--text-3); margin-top: 5px; }
+/* metrics */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.mc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.mc-l{font-size:11px;color:var(--ink-3)}
+.mc-v{font-family:var(--mono);font-size:28px;font-weight:500;line-height:1.2;margin-top:4px}
+.mc-v small{font-family:var(--sans);font-size:12px;color:var(--ink-3);margin-left:3px}
+.mc-s{font-size:11px;color:var(--ink-3);margin-top:4px}
 
-  /* FUNNEL */
-  .funnel-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
-  .funnel-sessions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .funnel-session-label { font-size: 12px; font-weight: 500; color: var(--text-2); margin-bottom: 10px; }
-  .funnel-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-  .funnel-bar-label { font-size: 11px; color: var(--text-3); width: 42px; flex-shrink: 0; }
-  .funnel-bar-track { flex: 1; background: #f0efe9; border-radius: 4px; height: 8px; overflow: hidden; }
-  .funnel-bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
-  .funnel-bar-val { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--text-3); width: 30px; text-align: right; }
-  .funnel-divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
-  .funnel-all-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .funnel-all-item { display: flex; flex-direction: column; gap: 3px; }
-  .funnel-all-num { font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 500; }
-  .funnel-all-sub { font-size: 11px; color: var(--text-3); }
+/* bars */
+.brow{display:grid;grid-template-columns:118px 1fr 40px;align-items:center;gap:10px;margin-bottom:10px}
+.brow:last-child{margin-bottom:0}
+.bl{font-size:12px;color:var(--ink-2);text-align:right;line-height:1.3}
+.bt{position:relative;height:10px;background:var(--sunk);border-radius:4px}
+.bf{position:absolute;left:0;top:0;bottom:0;border-radius:0 4px 4px 0;background:var(--accent)}
+.tick{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--ink);border-radius:1px}
+.bv{font-family:var(--mono);font-size:12px;text-align:right}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:11px;color:var(--ink-3);margin-top:14px}
+.legend i{display:inline-block;vertical-align:middle;margin-right:5px}
 
-  /* TWO COL */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+/* charts */
+svg text{font-family:var(--mono);font-size:11px;fill:var(--ink-3)}
+svg .lab{font-family:var(--sans);fill:var(--ink-2);font-size:11px}
+svg .val{fill:var(--ink);font-size:12px;font-weight:500}
+.chart{width:100%;height:auto;display:block}
 
-  /* CHART CARD */
-  .cc { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
-  .cc-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 14px; }
-  .score-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; }
-  .score-label { font-size: 12px; color: var(--text-2); width: 100px; flex-shrink: 0; text-align: right; line-height: 1.3; }
-  .score-track { flex: 1; background: #f0efe9; border-radius: 4px; height: 9px; overflow: hidden; }
-  .score-fill { height: 100%; border-radius: 4px; background: var(--purple); transition: width 0.5s; }
-  .score-val { font-size: 12px; font-weight: 500; font-family: 'DM Mono', monospace; color: var(--text); width: 26px; }
-  .dist-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
-  .dist-label { font-size: 12px; color: var(--text-3); width: 26px; }
-  .dist-track { flex: 1; background: #f0efe9; border-radius: 4px; height: 8px; overflow: hidden; }
-  .dist-fill { height: 100%; border-radius: 4px; background: #EF9F27; transition: width 0.5s; }
-  .dist-count { font-size: 12px; font-family: 'DM Mono', monospace; color: var(--text-3); width: 18px; text-align: right; }
-  .divider { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+/* heatmap */
+.hm-wrap{overflow-x:auto}
+table.hm{width:100%;border-collapse:separate;border-spacing:3px;min-width:520px}
+.hm th{font-size:11px;font-weight:500;color:var(--ink-3);padding:4px 6px;text-align:center;white-space:nowrap}
+.hm th.rl{text-align:right;color:var(--ink-2);font-size:12px;font-weight:400;width:170px}
+.hm td{text-align:center;font-family:var(--mono);font-size:12px;padding:9px 4px;border-radius:5px;cursor:default}
 
-  /* NPS */
-  .nps-nums { display: flex; gap: 20px; margin-bottom: 14px; }
-  .nps-item { display: flex; flex-direction: column; gap: 2px; }
-  .nps-item-label { font-size: 10px; color: var(--text-3); }
-  .nps-item-val { font-family: 'DM Mono', monospace; font-size: 22px; font-weight: 500; }
-  .nps-bar-wrap { display: flex; height: 10px; border-radius: 6px; overflow: hidden; gap: 1px; }
-  .nps-seg { height: 100%; transition: width 0.5s; }
-  .nps-seg-labels { display: flex; justify-content: space-between; margin-top: 6px; }
-  .nps-seg-label { font-size: 10px; color: var(--text-3); }
-  .nps-explain { background: #f7f6f3; border-radius: var(--radius-sm); padding: 10px 12px; margin-top: 14px; font-size: 11px; color: var(--text-3); line-height: 1.7; }
-  .nps-explain strong { color: var(--text-2); font-weight: 500; }
-  .nps-chips { display: flex; gap: 5px; flex-wrap: wrap; margin: 4px 0; }
-  .chip { font-size: 10px; padding: 1px 7px; border-radius: 20px; font-weight: 500; }
-  .chip-g { background: var(--green-light); color: var(--green); }
-  .chip-a { background: var(--amber-light); color: var(--amber); }
-  .chip-r { background: var(--red-light); color: var(--red); }
-  .nps-formula { font-family: 'DM Mono', monospace; font-size: 11px; margin-top: 4px; color: var(--text-2); }
+/* nps */
+.nps-nums{display:flex;gap:22px;flex-wrap:wrap;margin-bottom:14px}
+.nn span{display:block;font-size:10px;color:var(--ink-3)}
+.nn b{font-family:var(--mono);font-size:22px;font-weight:500}
+.npsbar{display:flex;height:12px;gap:2px}
+.npsbar div{height:100%}
+.npsbar div:first-child{border-radius:4px 0 0 4px}.npsbar div:last-child{border-radius:0 4px 4px 0}
+.nps-lab{display:flex;justify-content:space-between;font-size:10px;margin-top:6px}
+.explain{background:var(--sunk);border-radius:8px;padding:10px 12px;margin-top:14px;font-size:11px;color:var(--ink-3);line-height:1.8}
+.explain b{color:var(--ink-2);font-weight:500}
 
-  /* PURPOSE */
-  .purpose-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-  .purpose-label { font-size: 12px; color: var(--text-2); flex: 0 0 auto; max-width: 155px; line-height: 1.3; }
-  .purpose-track { flex: 1; background: #f0efe9; border-radius: 4px; height: 8px; overflow: hidden; }
-  .purpose-fill { height: 100%; border-radius: 4px; background: var(--purple); opacity: 0.6; transition: width 0.5s; }
-  .purpose-cnt { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--text-3); width: 22px; text-align: right; }
+/* funnel */
+.fn-top{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:14px}
+.fn-top b{display:block;font-family:var(--mono);font-size:22px;font-weight:500}
+.fn-top span{font-size:11px;color:var(--ink-3)}
+.fn-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;border-top:1px solid var(--line);padding-top:14px}
+.fn-s{font-size:12px;font-weight:500;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.fn-r{display:grid;grid-template-columns:36px 1fr 26px;gap:6px;align-items:center;font-size:11px;color:var(--ink-3);margin-bottom:5px}
+.fn-r .bt{height:8px}
+.fn-r .bv{font-size:11px}
+.pending{font-size:11px;color:var(--ink-3);background:var(--sunk);border-radius:6px;padding:8px 10px;line-height:1.6}
 
-  /* TAGS */
-  .tag { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 20px; margin: 0 4px 5px 0; line-height: 1.5; }
-  .tag-g { background: var(--green-light); color: #0a5e40; }
-  .tag-a { background: var(--amber-light); color: #7a4a00; }
+/* feedback */
+.fb-cols{columns:2;column-gap:14px}
+.fb{break-inside:avoid;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 15px;margin-bottom:12px}
+.fb-meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:6px}
+.chip{font-size:10px;font-weight:500;padding:1px 8px;border-radius:20px;background:var(--sunk);color:var(--ink-2)}
+.chip.s{color:var(--ink);display:inline-flex;align-items:center;gap:5px}
+.fb p{font-size:13px;line-height:1.8;color:var(--ink)}
+.fb p.clamp{display:-webkit-box;-webkit-line-clamp:6;-webkit-box-orient:vertical;overflow:hidden}
+.more{margin-top:6px;border:0;background:none;color:var(--accent);font:500 12px var(--sans);cursor:pointer;padding:0}
+.fb-group{margin-top:22px}
+.fb-group:first-child{margin-top:0}
+.fb-gh{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:13px;font-weight:700}
+.fb-gh span{font-weight:400;font-size:12px;color:var(--ink-3)}
+.note{font-size:12px;color:var(--ink-3);line-height:1.7}
+.notes{display:grid;gap:4px;margin-top:10px}
 
-  /* COMMENTS */
-  .comment-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 16px; margin-bottom: 10px; }
-  .comment-badge { display: inline-block; font-size: 10px; padding: 2px 8px; border-radius: 20px; background: var(--purple-light); color: var(--purple); font-weight: 500; margin-bottom: 8px; }
-  .comment-text { font-size: 13px; color: var(--text); line-height: 1.75; }
-  .improve-card { background: var(--card); border: 1px solid var(--border); border-left: 3px solid #EF9F27; border-radius: 0 var(--radius) var(--radius) 0; padding: 12px 16px; margin-bottom: 10px; }
-  .improve-text { font-size: 13px; color: var(--text-2); line-height: 1.75; }
+#tip{position:fixed;pointer-events:none;z-index:20;background:var(--tip-bg);color:var(--tip-ink);font-size:12px;line-height:1.5;padding:6px 9px;border-radius:6px;max-width:260px;opacity:0;transition:opacity .1s}
+footer{border-top:1px solid var(--line);background:var(--card);color:var(--ink-3);font-size:12px;text-align:center;padding-block:20px}
 
-  /* FOOTER */
-  .footer { background: var(--card); border-top: 1px solid var(--border); padding: 20px 24px; text-align: center; color: var(--text-3); font-size: 12px; margin-top: 40px; }
-  .footer a { color: var(--purple); text-decoration: none; }
-  .footer a:hover { text-decoration: underline; }
-
-  @media (max-width: 600px) {
-    .main { padding: 16px; }
-    .two-col { grid-template-columns: 1fr; }
-    .funnel-sessions { grid-template-columns: 1fr; }
-    .funnel-all-row { grid-template-columns: repeat(3,1fr); }
-    .header-inner { flex-direction: column; }
-    .header-meta { align-items: flex-start; }
-  }
+@media (max-width:760px){
+  .scards,.metrics{grid-template-columns:repeat(2,1fr)}
+  .grid2{grid-template-columns:1fr}
+  .fn-grid{grid-template-columns:repeat(2,1fr)}
+  .fb-cols{columns:1}
+}
+@media (max-width:420px){
+  .wrap{padding-inline:16px}
+  .brow{grid-template-columns:92px 1fr 34px}
+  .head-stats{gap:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 
-<div class="header">
-  <div class="header-inner">
+<header>
+  <div class="wrap head">
     <div>
-      <div class="header-badge">AAPD DSWS</div>
-      <div class="header-title">新手也懂的設計系統 AI 工作流<br>直播工作坊｜課程滿意度回饋</div>
-      <div class="header-sub">三場次學員回饋整理 · 2026</div>
+      <div class="eyebrow">AAPD · DSWS 直播工作坊</div>
+      <h1>新手也懂的設計系統 AI 工作流｜學員回饋</h1>
+      <div class="sub">四個場次的滿意度問卷整理 · 資料截至 2026/9/6</div>
     </div>
-    <div class="header-meta">
-      <div class="header-stat">
-        <div class="header-stat-num">62</div>
-        <div class="header-stat-label">份問卷回覆</div>
-      </div>
-      <div class="header-stat">
-        <div class="header-stat-num" style="font-size:16px;color:var(--text-2);">120 位報名</div>
-        <div class="header-stat-label">填寫率 52%</div>
-      </div>
-    </div>
+    <div class="head-stats" id="headStats"></div>
   </div>
-</div>
-
-<div class="tab-wrap">
-  <div class="tab-inner">
-    <button class="tab-btn active" onclick="switchTab(this,'all')">全部場次</button>
-    <button class="tab-btn" onclick="switchTab(this,'s1')">3/14 (六) 第一場</button>
-    <button class="tab-btn" onclick="switchTab(this,'s2')">3/21 (六) 第二場</button>
-    <button class="tab-btn" onclick="switchTab(this,'s3')">5/9 (六) 第三場</button>
-  </div>
-</div>
-
-<div class="main" id="main"></div>
-
-<div class="footer">
-  本頁面為 AAPD 課程回饋整理，僅供學員與相關人員參考。
-</div>
+</header>
+<nav><div class="wrap tabs" id="tabs" role="tablist"></div></nav>
+<main class="wrap" id="main"></main>
+<footer><div class="wrap">本頁為 AAPD「新手也懂的設計系統 AI 工作流」課程回饋整理，文字回饋僅收錄同意公開者，不含姓名與聯絡資料。</div></footer>
+<div id="tip" role="tooltip"></div>
 
 <script>
-const SM = {
-  s1: { label:'3/14 (六)', registered:40, attended:35, responses:21, color:'#534AB7', track:'#EEEDFE' },
-  s2: { label:'3/21 (六)', registered:40, attended:29, responses:22, color:'#1D9E75', track:'#E1F5EE' },
-  s3: { label:'5/9 (六)',  registered:40, attended:33, responses:19, color:'#D85A30', track:'#FAECE7' }
+/* ---------- 場次設定 ---------- */
+const SESS = {
+  a:{label:'3/14 (六)', long:'3/14 (六) 13:00–17:00', v:'--s1', reg:40, att:35},
+  b:{label:'3/21 (六)', long:'3/21 (六) 13:00–17:00', v:'--s2', reg:40, att:29},
+  c:{label:'5/9 (六)',  long:'5/9 (六) 13:00–18:00',  v:'--s3', reg:40, att:33},
+  d:{label:'8/22 (六)', long:'8/22 (六) 13:00–18:00', v:'--s4', reg:null, att:28}
 };
-const DATA = {
-  all: {
-    label:'全部場次', responses:62, overall:4.22, recommend_avg:7.76,
-    scores:{ '課程流程與節奏':3.98, '講師互動與回饋':4.47, 'AI 建立設計系統':4.39, 'AI 定義 Design Token':4.27, 'Figma Make 實作':4.0 },
-    nps:[12,32,18], dist:[0,1,8,27,26], consent:84, full_attend:89,
-    purpose:{ '想搞懂 Token 從設計端落地':55, '想知道設計開發協作更順':40, '想知道 Figma Make 情境':38, '想寫出有效 Prompt':34 },
-    likes:['課程內容實用，可以應用在工作中','流程講解非常完整，從起手式到落地都講解的非常清楚','分享的所有知識點都很有價值','Figjam 編排得很好，步驟區塊分的很有架構好讀'],
-    improve:['AI 點數、教育帳號限制較多，老師說明節奏稍快，容易跟不上','課程節奏偏快，實作練習有連動關係，建議調整時間分配','課程後段偏 what 而非 why & how，助教收尾專業度建議提升','整體節奏掌握可再優化，特別是 Figma 教育版申請環節'],
-    extra:['如果分成早午兩堂可能更充實，有更多實操和消化時間','謝謝講師教材整理得很用心']
-  },
-  s1: {
-    label:'3/14 第一場', responses:21, overall:3.89, recommend_avg:7.43,
-    scores:{ '課程流程與節奏':3.62, '講師互動與回饋':4.19, 'AI 建立設計系統':4.14, 'AI 定義 Design Token':3.95, 'Figma Make 實作':3.57 },
-    nps:[6,9,6], dist:[0,1,4,9,7], consent:76, full_attend:86,
-    purpose:{ '想搞懂 Token 從設計端落地':19, '想知道設計開發協作更順':14, '想知道 Figma Make 情境':14, '想寫出有效 Prompt':10 },
-    likes:['課程內容實用，可以應用在工作中','流程講解非常完整，從起手式到落地都很清楚','分享的所有知識點都很有價值'],
-    improve:['AI 點數、教育帳號限制多，節奏快不好跟','每個實作之間有連動，前一步未完成就直接進入下一個，容易跟不上','課程體驗後段偏 what 而非 why & how，助教收尾建議再提升','Figma 教育版申請流程、API key 步驟可加強說明'],
-    extra:['如果分成早午兩堂，放慢節奏，多點實操和消化時間更好','謝謝講師教材整理得很用心']
-  },
-  s2: {
-    label:'3/21 第二場', responses:22, overall:4.45, recommend_avg:8.0,
-    scores:{ '課程流程與節奏':4.23, '講師互動與回饋':4.64, 'AI 建立設計系統':4.55, 'AI 定義 Design Token':4.59, 'Figma Make 實作':4.23 },
-    nps:[3,13,6], dist:[0,0,1,10,11], consent:86, full_attend:86,
-    purpose:{ '想搞懂 Token 從設計端落地':19, '想知道設計開發協作更順':15, '想寫出有效 Prompt':14, '想知道 Figma Make 情境':12 },
-    likes:['老師講解很好懂，不怕能力差跟不上，課程拆解得很細','Harry 老師課程非常紮實，從 0 到 1 帶完整個流程','節奏稍快，但老師即時回覆各種問題，能夠一起跑完最後環節','老師整理的 Prompt 很好用，前段設計系統練習很有幫助'],
-    improve:['老師語速可以稍慢一點','前段設計系統說明內容與 AAPD 其他課程有些重疊，期待有更多新內容'],
-    extra:['這是我第一次上老師的課，教得很仔細又清楚，非常感謝！','老師辛苦了，收穫滿滿的一堂課！','感謝老師和 AAPD 團隊的用心！']
-  },
-  s3: {
-    label:'5/9 第三場', responses:19, overall:4.33, recommend_avg:7.84,
-    scores:{ '課程流程與節奏':4.11, '講師互動與回饋':4.58, 'AI 建立設計系統':4.47, 'AI 定義 Design Token':4.26, 'Figma Make 實作':4.21 },
-    nps:[3,10,6], dist:[0,0,3,8,8], consent:89, full_attend:95,
-    purpose:{ '想搞懂 Token 從設計端落地':17, '想知道 Figma Make 情境':12, '想知道設計開發協作更順':11, '想寫出有效 Prompt':10 },
-    likes:['課程內容實用，老師說明很仔細','Figjam 編排清晰，步驟區塊結構好讀，自己實作時沒有遇到太大問題','老師是真的懂且會實作，課程設計貼心，有人性的溫度','內容很扎實，Q&A 耐心回覆完畢'],
-    improve:['教育權限開通說明不夠詳細，應用到職場的實用性不明確','建立之後的後續維護與協作部分著墨太少','批改課堂作業可交給助手，節省課程時間'],
-    extra:['感謝老師用心安排，有搭配影片讓學員複習很棒','謝謝講師很有耐心地解決大家的問題，也謝謝助教即時處理狀況']
-  }
+const ITEMS = ['課程流程與節奏','講師互動與回饋','AI 規劃設計系統','AI 定義 Design Token','Figma Make 實作'];
+const GOALS = {P:'寫出有效的 Prompt', M:'Figma Make 適用情境', T:'Token 從設計端落地', C:'設計開發協作更順'};
+const THEMES = {
+  pace:'節奏太快、時間不夠',
+  setup:'課前準備與帳號（教育版／AI 點數）',
+  support:'跟不上時的救援機制',
+  why:'想懂 Prompt 與步驟背後的 why',
+  apply:'回到職場的應用情境',
+  depth:'延伸需求（Storybook、Claude Code…）',
+  tech:'直播與協作工具體驗'
 };
 
-function nps(arr) { const t=arr[0]+arr[1]+arr[2]; return Math.round((arr[2]-arr[0])/t*100); }
-function pct(a,b) { return Math.round(a/b*100); }
+/* ---------- 回覆資料（已移除姓名、Email；未同意公開者不保留文字） ----------
+   [場次, 完整參與, 報名目的, 流程, 互動, AI規劃, Token, Make, 推薦0-10, 同意公開, 建議主題, 最喜歡, 差什麼才推薦, 需加強, 給講師] */
+const R = [
+['a',1,'MTC',5,5,5,5,3,10,1,'','課程內容實用，可以應用在工作中','','',''],
+['a',1,'PMT',3,4,3,3,3,6,1,'pace setup','','','有太多限制，AI 點數、教育帳號，老師說明的節奏很快，跟不上～',''],
+['a',0,'PMTC',3,4,4,4,3,7,1,'pace support','','需要多点时间，感觉都很快的刷过，需要聆听、消化和实操。因此缺少消化的时间，赶着做完，希望有课后复习，或者提疑问的地方，一起学习。','','如果分成早午两堂也许比较充实，慢一些，多点实操，多点消化时间。也可以有总结部分，现在没有总结，不知道每一步的目的是什么，希望老师可以在学院那里解释一下每一个操作的目的，谢谢。'],
+['a',1,'TC',4,4,4,4,4,8,1,'pace','','教學時可以再放慢一點','','謝謝講師教材整理得很用心：）'],
+['a',1,'PTC',5,5,5,5,5,10,0,'pace','','','',''],
+['a',1,'TC',4,4,5,5,5,10,1,'setup','分享的所有知識點都很有價值','','','課程需要一些先備知識，可以提前告知參與者，讓課程不會因為小問題卡住，可以順利進行'],
+['a',1,'TC',5,5,5,4,4,9,1,'','課程內容','','',''],
+['a',1,'PM',2,4,4,3,1,5,1,'pace setup','','','1. 課程節奏稍微偏快，每個實作練習之間都有連動關係，如果前一個步驟尚未完成或理解，就會直接進入下一個內容，容易讓人跟不上進度。建議在課程節奏與時間分配上再做調整（我認為可以在課前請同學稍微熟悉 FigJam、Variable 的操作）。 2. 課程前段有提到可以透過產品截圖交給 AI 協助產出系統原則，建議補充提醒企業機密與資料安全的問題，因為不少公司其實是禁止將內部介面上傳到外部 AI 工具的。 3. 這次最大的問題是教育版授權未提供，Figma Make 實際上就是無法持續使用。雖然課堂上提到可以改用其他 AI 工具替代，但整體體驗其實不佳，因為內容都是圍繞 Figma Make 操作的。 4. 課程內容很豐富很棒，包含一些方便的插件，還有 Figma Make 一連串產出的應用。','加油！AAPD 課程感覺越來越多元了！各位導師辛苦了！'],
+['a',1,'TC',5,5,5,5,5,7,1,'tech','','唯一美中不足的是在 Demo 影片的時候會 lag','',''],
+['a',1,'PMTC',2,2,2,2,2,8,0,'pace','','','',''],
+['a',1,'MTC',5,5,5,4,3,8,1,'setup why depth','','1. 教學版的購買及後續處理可以優化，課程中也沒有提到這個問題的處理跟情況，沒有 AI 點數應該導致了滿多同學無法實作 2. 老師提供的提示詞是如何演變或構思出來的 3. 課程傾向全新建立一套設計系統，如果是想套入既有系統，可以注意哪些地方，或使用 AI 延伸的合適度','','很期待後續的 AI 應用課程'],
+['a',1,'PMT',4,5,5,5,5,9,1,'','內容很豐富！','','',''],
+['a',0,'TC',3,3,3,3,3,7,1,'','','當天忽然有一些情況，只能用手機斷斷續續收看，但因為之前看過介紹影片，覺得相當值得學習，可能暫無法提供具體建議','',''],
+['a',1,'PMTC',3,5,4,3,3,5,0,'why support','','','',''],
+['a',1,'MT',3,5,5,5,5,6,1,'pace setup','','','整體的工作坊體驗很好，老師的敘述方式也清晰好懂，但整體節奏上有點掌握不好：從 Figma 教育版申請、工作坊實作流程、Google API key 申請與複製，有一些小地方可以加強。特別是實作流程上，因為老師的教學內容很紮實，同學不一定都有跟上，時間拉長後整體工作坊時間也跟著拉長。實作過程中使用影片 demo，但影片都是新開一個 Figma Make 檔案從頭上提示詞，起初以為要開新檔案，是助教提醒後才發現要沿用同一個。不過在這個工作坊中學到很有效率的 AI 應用，是很好的體驗。','感謝 Harry 老師的授課，還有 AAPD 總可以發掘 Junior designer 的從業痛點，這是一個很棒也很有意思的工作坊，含金量滿滿！迫不及待將學到的 AI 技能應用在工作上！'],
+['a',1,'M',4,4,3,4,3,7,1,'apply setup','','快速產生設計系統後，後續的調整應用方式','','課程節奏流暢，課前提醒可以再提早'],
+['a',1,'PMTC',3,4,4,4,4,8,0,'','','','',''],
+['a',1,'PMTC',3,4,4,4,3,7,0,'setup pace apply','','','',''],
+['a',1,'MT',3,4,4,4,4,5,1,'pace','','','時間有點短',''],
+['a',0,'MT',3,3,3,3,3,5,1,'','','','',''],
 
-function funnelBlock(key) {
-  if (key === 'all') {
-    const totalReg=120, totalAtt=97, totalResp=62;
-    return `
-      <div class="section-label">參與與填寫概況</div>
-      <div class="funnel-card">
-        <div class="funnel-all-row" style="margin-bottom:16px;">
-          <div class="funnel-all-item"><div class="funnel-all-num" style="color:var(--purple);">${totalReg}</div><div class="funnel-all-sub">報名人數</div></div>
-          <div class="funnel-all-item"><div class="funnel-all-num" style="color:var(--green);">${totalAtt}</div><div class="funnel-all-sub">實際出席｜${pct(totalAtt,totalReg)}%</div></div>
-          <div class="funnel-all-item"><div class="funnel-all-num">${totalResp}</div><div class="funnel-all-sub">問卷回填｜${pct(totalResp,totalAtt)}%（出席者）</div></div>
-        </div>
-        <div class="funnel-divider"></div>
-        <div class="funnel-sessions">
-          ${['s1','s2','s3'].map(sid=>{
-            const m=SM[sid];
-            return `<div>
-              <div class="funnel-session-label">${m.label}</div>
-              <div class="funnel-bar-row">
-                <div class="funnel-bar-label">報名</div>
-                <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:100%;background:${m.color};opacity:0.2;"></div></div>
-                <div class="funnel-bar-val">${m.registered}</div>
-              </div>
-              <div class="funnel-bar-row">
-                <div class="funnel-bar-label">出席</div>
-                <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:${pct(m.attended,m.registered)}%;background:${m.color};opacity:0.5;"></div></div>
-                <div class="funnel-bar-val">${m.attended}</div>
-              </div>
-              <div class="funnel-bar-row">
-                <div class="funnel-bar-label">填問卷</div>
-                <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:${pct(m.responses,m.registered)}%;background:${m.color};"></div></div>
-                <div class="funnel-bar-val">${m.responses}</div>
-              </div>
-            </div>`;
-          }).join('')}
-        </div>
-      </div>`;
-  }
-  const m = SM[key];
-  return `
-    <div class="section-label">參與與填寫概況</div>
-    <div class="funnel-card">
-      <div class="funnel-all-row" style="margin-bottom:16px;">
-        <div class="funnel-all-item"><div class="funnel-all-num" style="color:var(--purple);">${m.registered}</div><div class="funnel-all-sub">報名人數</div></div>
-        <div class="funnel-all-item"><div class="funnel-all-num" style="color:var(--green);">${m.attended}</div><div class="funnel-all-sub">實際出席｜${pct(m.attended,m.registered)}%</div></div>
-        <div class="funnel-all-item"><div class="funnel-all-num">${m.responses}</div><div class="funnel-all-sub">問卷回填｜${pct(m.responses,m.attended)}%（出席者）</div></div>
-      </div>
-      <div class="funnel-bar-row">
-        <div class="funnel-bar-label">報名</div>
-        <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:100%;background:${m.color};opacity:0.2;"></div></div>
-        <div class="funnel-bar-val">${m.registered}</div>
-      </div>
-      <div class="funnel-bar-row">
-        <div class="funnel-bar-label">出席</div>
-        <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:${pct(m.attended,m.registered)}%;background:${m.color};opacity:0.5;"></div></div>
-        <div class="funnel-bar-val">${m.attended}</div>
-      </div>
-      <div class="funnel-bar-row">
-        <div class="funnel-bar-label">填問卷</div>
-        <div class="funnel-bar-track"><div class="funnel-bar-fill" style="width:${pct(m.responses,m.registered)}%;background:${m.color};"></div></div>
-        <div class="funnel-bar-val">${m.responses}</div>
-      </div>
-    </div>`;
+['b',1,'PT',5,5,5,5,5,8,1,'','','蠻好的了','',''],
+['b',1,'MT',5,5,5,5,5,9,1,'','老師講解很好懂，不怕能力怕跟不上，課程拆解得很細','','',''],
+['b',1,'PMTC',4,4,4,4,4,7,1,'apply','','加多一些如何可以運用在公司上的例子','',''],
+['b',1,'PMT',5,5,5,5,5,8,1,'depth','','我覺得 Make 沒有很好用，未來想看看老師如何在其他 AI 工具（例如老師提到的 Claude 或 Cursor）建立設計系統，並讓 AI 使用建立好的設計系統完成前端畫面。','','這是我第一次上老師的課，教得很仔細又很清楚，非常感謝！'],
+['b',1,'PMT',5,5,5,5,5,8,0,'','','','',''],
+['b',1,'PMTC',5,5,5,5,5,8,1,'setup pace','','可讓學員提早準備要練習示範的檔案。內容是充實的，步驟較長的章節節奏稍快，加上軟體不熟會有點跟不上，中途 AI 沒額度，但影片能無限回放是好的','',''],
+['b',1,'PMTC',4,5,5,5,5,10,1,'','Harry 老師的課程講解非常細緻，整體覺得非常紮實～上這堂課之前，自己對使用 vibe coding 協助 design token 以及製作 design system 的流程完全不熟悉。老師通過對步驟的拆解，帶領大家一步一步從 0 到 1 跑完整個流程（雖然信息量有點爆炸，可能要靠回放慢慢吸收），但課程結束之後確實對 design token 與 design system 的製作有了很清晰的認知。老師也給了很多優秀設計系統的參考資料，如果想學習這方面的內容，這門課是很好的切入點。','','','感謝老師和 AAPD 團隊的用心！'],
+['b',1,'PTC',4,5,4,5,4,8,1,'pace why','','提示詞說明可再放慢點，更清楚自己請 AI 做了哪些事、預計產出什麼（因為提示詞內容較多，不是源自自己的想法，會下意識一股腦貼進 chat，有時會閃神不確定自己正在做什麼）','','感謝，感覺很用心在準備 FigJam，design token 的概念很用心在拆解'],
+['b',1,'PTC',4,5,5,5,4,9,1,'','節奏有點快，但老師會很即時地回覆各種問題，所以即使中間有些步驟無法一次上手，也還是能完整地一起執行到最後。內容十分充實，說明也很清晰易懂','','',''],
+['b',1,'PT',4,4,5,5,4,8,1,'why','','Design Token 介紹、命名方法與結構的部分希望更簡單明瞭，可以多講幾個不同例子','','感謝老師準備這麼多教材、提示詞，以及 Figma Make 的設置方法，受益良多。'],
+['b',1,'C',5,5,5,5,4,9,1,'','節奏安排','','',''],
+['b',1,'TC',5,5,5,5,4,7,1,'support','','在 variable 繼承那邊卡住，覺得這邊可以錄 demo 影片放在 FigJam 裡面','','Harry 老師上課淺顯易懂，實作上比較容易。API 有提前說要用非常加分，如果課程現場才申請一定會手忙腳亂'],
+['b',1,'PMTC',5,5,5,5,5,8,1,'depth','','希望還能了解 Figma 之外與 AI 的協作方式，例如 Paper × Claude','',''],
+['b',1,'PMTC',3,5,4,4,4,8,0,'','','','',''],
+['b',0,'PMTC',4,4,4,4,4,6,1,'pace','','','老師的語速可以慢一點（純屬個人意見，也許其他學員覺得還好）',''],
+['b',1,'TC',3,4,4,4,3,8,1,'tech apply','','1. 一開始要進 Zoom 時好像不太順，以為自己的連結是錯的 2. 老師自己也說不太會用 Figma Make 做課程裡的這些事，如果能更以工作流的角度切入，可能更好落地在實戰中','','覺得課程很棒！有感覺到 UIUX 設計的流程要開始迎來大轉變。這堂課像一個開端，讓我更有方向去探索設計新的可能性'],
+['b',1,'TC',3,4,5,5,2,9,1,'support','老師整理的 Prompt 很好用，前面設計系統有先練習還跟得上，後半段主要實用的功能還是沒做出來，需要重看直播','','','可以開給無程式基礎者也能使用的 AI 設計課程'],
+['b',1,'M',5,5,5,5,5,10,1,'apply depth','我喜歡 Harry 老師用心整理提示詞，並且說明提示詞的整理過程。練習的提示詞都是最精華的部分，省去許多跟 AI 反覆對答的時間，課程中也實地演練設計系統結合 AI 工具的工作流程。練習時間也很充裕，老師很細心地觀察大家的進度再加時。','','','很多同學包含我自己，還是不曉得這套工作流確切的使用情境；老師常提到 Claude Code 更方便，希望能快速演示一下用該工具的同樣操作。不過對於想初步認識 Figma Make 的學員真的受益很多。'],
+['b',0,'MT',4,5,4,4,4,8,0,'pace support tech','','','',''],
+['b',1,'PTC',4,5,4,3,4,6,1,'depth','','','Design Token 的意涵有必要先講解，但這部分和 AAPD 其他課程的內容重疊，所以會期待這一場有所不同','好想要多一些 UX 的課程，包含量化研究、分析等等。發現 AAPD 的課程多偏向 UI 或質化研究，但還是很感謝 AAPD 持續提供各種課程、比賽、交流制度！'],
+['b',1,'PMTC',4,4,4,4,4,8,1,'why tech','','1. 每個階段都有流程步驟和實作練習很有幫助，但做到最後會有點迷失，如果能有全觀 Overview 的流程介紹，應該能更快掌握整體步驟 2. 回放影片畫質模糊，不利補課','','謝謝老師準備豐富的教學內容，收穫很多！'],
+['b',0,'C',3,3,3,4,4,6,1,'','','','目前沒有，很棒的工作坊！',''],
+['b',1,'TC',5,5,5,5,5,7,1,'','','老師很棒！','',''],
+
+['c',1,'PMT',4,4,4,4,4,8,1,'pace','','時間安排若能再精準點更好，課程晚了一個半小時下課，後面有些時間是掛著聽為主','','大大感謝老師用心安排，很清楚，而且還有搭配影片讓學員複習'],
+['c',1,'T',5,5,5,5,5,10,1,'','課程內容實用，老師說明很仔細','','',''],
+['c',1,'T',5,5,5,5,5,9,1,'','FigJam 編排得很好，清晰易懂，步驟區塊也分得很有架構、好讀。老師步驟講解跟操作得很清楚，換成自己實作時沒有遇到太大的問題，有教學影片也有助於複習。','','',''],
+['c',1,'PMT',3,4,4,4,4,8,0,'depth','','','',''],
+['c',1,'T',4,3,4,3,3,7,1,'why','','Prompt 可以再更細地拆解，說明建立設計系統時該注意的地方','','有實作與講師協助查看很讚'],
+['c',1,'MTC',5,5,4,4,4,7,1,'apply','','可以再多說明這個部分在什麼樣的情境下使用。雖然學到了工作流，但回到自己的專案，會要再想一下何時用得到','','謝謝講師很有耐心地解決大家的問題，也謝謝助教即時處理上課狀況'],
+['c',1,'PMTC',4,4,4,4,4,8,1,'pace','','時間可以再充裕一點，後面有點趕的感覺','','謝謝老師這堂課的指導，補足了我在 AI 運用上不足的技巧與知識'],
+['c',1,'MT',3,5,4,3,2,6,1,'setup apply depth','','','1. 教育權限的開通說明不夠詳細，導致不知道還要進 Figma 設定 2. 應用到職場的實用性不明確 3. 建立之後的後續維護、協作著墨太少','Have fun.'],
+['c',1,'TC',5,5,5,5,5,10,1,'','我最喜歡的是老師的教學內容。老師是真的懂、會實作也會教學，沒有過度包裝，讓我學到實用的東西，達成購買課程的目的（從 0 到 1 建立設計系統文件）。請老師看階段性成果、詢問 Storybook 前端框架的看法，老師都很願意回答，說明清楚簡潔。整趟工作坊老師和小編都鼓勵大家說出遇到的問題，並耐心指導解決。大部分人都買過售後不理的線上課程，AAPD 的課程體驗下來最棒的是人性的溫度。我過去買過許多 DS 的課程、教材、文章，但一直卡在繼承和結構的概念，今天終於獲得解答，能實際操作 DS 從 0 到 1 的建立，清楚體會繼承關係、命名規則、結構上的彈性。','','',''],
+['c',1,'PMC',4,4,4,4,4,7,1,'why setup','','運用 AI 協助設計系統從開發到文件落地，流程很完整。有大量作業是用 AI 下提示詞協作，既然期待新手也能理解，能理解提示詞的意涵很重要。提示詞有些是 Dev 端的專業術語，在節奏稍快的狀況下有點難立刻融會貫通，也許可以在開課前建議學員先理解這些術語。','','謝謝老師開課，也會考慮購買 AAPD 上的設計系統課，讓這次工作坊的收穫更完整。'],
+['c',1,'MTC',4,5,5,5,5,8,1,'support','','如果朋友問我要不要參加這個課程，我的回答是正面的。改進的地方：希望可以提供一些素材給跟不上進度的學員，讓他們不會因為中途跟不上而影響後續練習。我在命名 Variables 時有點跟不上，後來用 Figma Make 生成整套 Token、下載 JSON 的步驟卡住，所以做不了下半部的練習。上半場如果有些 section 能提供素材，跟不上的學員至少可以動手試一試。老師很有耐心，願意重新示範並回答所有 Slido 的提問，團隊也細心準備了 demo，讓我覺得被照顧了。','','謝謝老師和團隊的耐心，在課程中我有很多問題問 XD'],
+['c',1,'PTC',5,5,5,5,5,8,1,'support','','看學員成果時，助教可以一起看，能節省時間','',''],
+['c',1,'PMTC',3,5,5,4,5,10,1,'','內容很扎實','','',''],
+['c',1,'PMTC',4,5,5,4,4,9,1,'setup','課程內容，以及耐心回完 Q&A','','','自己一開始疏忽，錯過提前申請教育版的期限（晚了兩天），最後的 plugin 和小作業沒辦法在課堂跟著實作有點可惜，不過整體是有收穫的，謝謝'],
+['c',1,'PMT',3,3,4,4,4,7,1,'depth','','這場工作坊在單一核心工具的介紹上表現出色，若能在完整知識體系的串聯與跨領域應用場景上進一步強化，內容會更有厚度與系統性～','',''],
+['c',1,'PMT',5,5,5,5,5,5,1,'support depth','','','校對課堂作業的工作可以交給小幫手，需要特別講解的錯誤案例再由老師說明，比較不會佔用課程時間，其他都很棒。很期待未來有設計師視角的 MCP、Claude Code、Storybook 相關課程，目前線上較詳細的分享大多是工程師主導，工作方式和操作邏輯不完全適合設計師。','很棒！謝謝老師和助教'],
+['c',1,'C',5,5,5,5,5,7,1,'apply','','AI 協作只能產出大略的內容，要實際可以使用還有很長一段路','',''],
+['c',0,'PMTC',3,5,3,3,3,6,1,'','','','課程內容很棒','感謝您們用心製作課程'],
+['c',1,'TC',4,5,5,5,4,9,0,'','','','',''],
+['c',1,'T',4,3,4,4,3,7,1,'depth','','希望可以有更完整的 Design System 案例示範，而不是只有實作按鈕 Design Token 的命名方式','','謝謝老師！'],
+['c',1,'PMTC',5,5,5,5,5,8,1,'','','已經很好了，節奏很好，實作也很充實，老師上課也講解得很清楚','','謝謝老師'],
+['c',0,'TC',4,4,2,4,2,7,1,'depth','','回顧時發現，我需要的其實是「如何把自己的 design system 系統性地建立 design token，然後跟外部 AI Agent 對接，以及怎麼寫單一品牌規範的 skill.md」，反而 Figma Make 對我幫助不大，用起來還是不太順，所以上到一半改去研究 design token 到底要怎麼用～','','但整體而言～老師很不錯唷！開啟了另外一個視窗'],
+
+['d',1,'M',4,4,4,4,4,8,1,'','','','','謝謝講師及團隊'],
+['d',1,'TC',4,5,4,4,4,7,0,'','','','',''],
+['d',1,'PMTC',5,5,5,5,5,10,0,'','','','',''],
+['d',1,'MT',4,4,4,4,4,8,1,'','','目前沒有想法，覺得體驗和收穫都很好！','','工作坊的節奏抓得很好～對小白也很友善'],
+['d',1,'TC',4,5,5,5,4,8,1,'pace','','節奏安排可以再流暢一點點','','今天上課的內容很實用'],
+['d',0,'PT',4,4,4,4,4,8,1,'tech','','FigJam 的多人同時操作太混亂，希望能針對這部分做調整','',''],
+['d',1,'MT',3,4,4,4,3,5,0,'pace support','','','',''],
+['d',1,'PT',3,5,5,4,4,9,1,'setup','完整帶領學員實際操作過一遍，幫助加深印象。課程設計流程順暢，可以照著做，就算跟不上也可以慢慢補','','','有些教材（外掛下載、先找好目標網頁）可以事先透露，或分享一些相關教學讓學員先預習，操作當下才不會匆匆忙忙、連滾帶爬～學到很多，謝謝老師設計這堂課'],
+['d',1,'MT',5,5,5,5,5,10,1,'','建立設計系統的部分，還有最後產出設計文件。最重要的是老師已經幫你準備好一套規則，自己不用盲目摸索，看到自己產出的設計文件有滿滿的成就感！','','','老師講得很仔細，一步一步帶你建立完整的設計系統，這就是我想學的內容！之前都是徒手建立快累死，這次好險有報名到，學到滿滿的技能！真的好開心，謝謝老師'],
+['d',1,'C',5,5,5,5,4,6,0,'','','','',''],
+['d',1,'TC',2,4,3,4,4,6,0,'pace support','','','',''],
+['d',1,'PMT',5,5,5,5,3,10,1,'','Harry 的講解明確，回覆問題也很清楚。實作可以直接輸入並輸出，很有收穫，也得到很多符合工作現場實際情況的建議。謝謝 Harry 和 AAPD～','','',''],
+['d',1,'MTC',3,4,3,4,3,7,1,'why depth','','希望可以延伸成更多天的實戰營，增加更多深度內容，例如：Prompt 背後的意義說明、各種情境的活用練習等','','敲碗 Storybook 應用課程！'],
+['d',1,'M',4,4,4,4,4,6,0,'setup','','','',''],
+['d',1,'PMT',3,4,4,4,4,7,1,'setup','','課程講義需要課後填完問卷才會提供，希望課前就先告知。上課模式是 FigJam 實作搭配直播畫面切換，希望事前更清楚說明，讓學員有心理準備；可能我不熟悉 Figma 的基本操作，中間實作卡住','',''],
+['d',1,'MT',4,5,5,5,5,8,1,'depth','','沒有，超讚超喜歡，許願 Harry 盡快開 Storybook 課程','','Harry 的課程和作品集都令我印象深刻，非常感謝！'],
+['d',1,'MT',5,5,5,5,5,8,1,'depth','','深入淺出，實用性高','','短時間內學到很多原本要花很多心力研究的實作方法，謝謝老師的教學！對 Storybook 很有興趣，也期待老師開課'],
+['d',1,'PMTC',5,5,5,5,5,8,0,'why','','','',''],
+['d',0,'TC',5,5,5,5,3,10,1,'','1. 實作部分的講解與步驟非常清楚易懂，雖然臨時有事只參與到部分直播，後來看回放也都能完整跟上。2. 課程內容能運用在工作上的實際項目，也提供了一些 side project 的靈感。3. 老師也分享了自己參考的網路資源，並清楚說明應用時機。','','','謝謝講師用心設計課程內容，讓我對設計系統的 AI 工作流有更進一步的認識'],
+['d',1,'TC',3,3,3,3,3,5,0,'depth','','','',''],
+['d',0,'PMTC',5,5,5,5,5,10,1,'','節奏安排非常好！老師會配合學員的進度調整時間，講解時不拖泥帶水。教學方式一步一腳印，還可以即時詢問問題，很滿意～課程內容學到很多具體操作 AI 生成 token 的方式，期待應用在專案中，內容非常充實：）','','',''],
+['d',0,'C',5,5,5,5,5,10,1,'','','','',''],
+['d',1,'PMTC',5,4,5,5,5,8,1,'','','課程內容紮實，而且很符合當下的現代開發，比起很多人還在用的開發方式更有規則、更高效','','']
+];
+
+/* ---------- 計算 ---------- */
+const rows = R.map(r=>({s:r[0],full:r[1],goals:r[2],q:r.slice(3,8),nps:r[8],ok:r[9],th:r[10]?r[10].split(' '):[],L:r[11],G:r[12],I:r[13],E:r[14]}));
+const mean = a => a.reduce((x,y)=>x+y,0)/a.length;
+function stats(rs){
+  const n=rs.length;
+  const items=ITEMS.map((_,i)=>mean(rs.map(r=>r.q[i])));
+  const pro=rs.filter(r=>r.nps>=9).length, det=rs.filter(r=>r.nps<=6).length, pas=n-pro-det;
+  const dist=[0,0,0,0,0]; rs.forEach(r=>dist[Math.round(mean(r.q)-1e-9)-1]++);
+  const goals={}; Object.keys(GOALS).forEach(k=>goals[k]=rs.filter(r=>r.goals.includes(k)).length);
+  const themes={}; Object.keys(THEMES).forEach(k=>themes[k]=rs.filter(r=>r.th.includes(k)).length);
+  return {n, items, overall:mean(items), rec:mean(rs.map(r=>r.nps)), pro,pas,det, npsScore:Math.round((pro-det)/n*100),
+    full:Math.round(rs.filter(r=>r.full).length/n*100), okN:rs.filter(r=>r.ok).length, dist, goals, themes};
 }
+const ALL = stats(rows);
+const BY = {}; Object.keys(SESS).forEach(k=>BY[k]=stats(rows.filter(r=>r.s===k)));
+const cv = v => `var(${v})`;
+const sgn = v => (v>0?'+':'')+v;
+const npsClass = v => v>=20?'good':(v>=0?'warn':'bad');
+const esc = s => s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 
-function npsBlock(d) {
-  const total = d.nps[0]+d.nps[1]+d.nps[2];
-  const npsVal = nps(d.nps);
-  const proP = pct(d.nps[2],total), pasP = pct(d.nps[1],total), detP = pct(d.nps[0],total);
-  return `
-    <div class="cc-title">NPS 推薦分析</div>
+/* ---------- 共用區塊 ---------- */
+function metrics(d){
+  return `<div class="metrics">
+    <div class="mc"><div class="mc-l">回填問卷</div><div class="mc-v">${d.n}<small>份</small></div><div class="mc-s">完整參與 ${d.full}%</div></div>
+    <div class="mc"><div class="mc-l">五項平均滿意度</div><div class="mc-v">${d.overall.toFixed(2)}<small>/ 5</small></div><div class="mc-s">最低項：${ITEMS[d.items.indexOf(Math.min(...d.items))]}</div></div>
+    <div class="mc"><div class="mc-l">NPS 淨推薦值</div><div class="mc-v">${sgn(d.npsScore)}</div><div class="mc-s">推薦意願平均 ${d.rec.toFixed(1)} / 10</div></div>
+    <div class="mc"><div class="mc-l">同意公開回饋</div><div class="mc-v">${Math.round(d.okN/d.n*100)}<small>%</small></div><div class="mc-s">${d.okN} 位同意</div></div>
+  </div>`;
+}
+function itemBars(d, compare){
+  return `<div class="panel"><div class="ptitle">各項評分細項<small>1–5 分</small></div>
+    ${ITEMS.map((l,i)=>`<div class="brow" data-tip="${l}：${d.items[i].toFixed(2)}${compare?`（全部場次 ${ALL.items[i].toFixed(2)}）`:''}">
+      <div class="bl">${l}</div>
+      <div class="bt"><div class="bf" style="width:${d.items[i]/5*100}%"></div>${compare?`<div class="tick" style="left:calc(${ALL.items[i]/5*100}% - 1px)"></div>`:''}</div>
+      <div class="bv">${d.items[i].toFixed(2)}</div></div>`).join('')}
+    ${compare?`<div class="legend"><span><i style="width:14px;height:8px;background:var(--accent);border-radius:2px"></i>本場次</span><span><i style="width:2px;height:12px;background:var(--ink)"></i>全部場次平均</span></div>`:''}
+  </div>`;
+}
+function distPanel(d){
+  const mx=Math.max(...d.dist)||1;
+  return `<div class="panel"><div class="ptitle">個人平均分分佈<small>每位學員五項平均，四捨五入</small></div>
+    ${d.dist.map((v,i)=>`<div class="brow" style="grid-template-columns:40px 1fr 30px" data-tip="${i+1} 分：${v} 人（${Math.round(v/d.n*100)}%）">
+      <div class="bl">${i+1} 分</div><div class="bt"><div class="bf" style="width:${v/mx*100}%;opacity:${.35+i*.16}"></div></div><div class="bv">${v}</div></div>`).join('')}
+  </div>`;
+}
+function npsPanel(d){
+  const p=x=>Math.round(x/d.n*100);
+  return `<div class="panel"><div class="ptitle">NPS 推薦分析</div>
     <div class="nps-nums">
-      <div class="nps-item"><div class="nps-item-label">NPS 分數</div><div class="nps-item-val" style="color:var(--purple);">${npsVal>=0?'+':''}${npsVal}</div></div>
-      <div class="nps-item"><div class="nps-item-label" style="color:var(--green);">推薦者 9–10</div><div class="nps-item-val" style="color:var(--green);">${d.nps[2]}</div></div>
-      <div class="nps-item"><div class="nps-item-label" style="color:var(--amber);">被動者 7–8</div><div class="nps-item-val" style="color:var(--amber);">${d.nps[1]}</div></div>
-      <div class="nps-item"><div class="nps-item-label" style="color:var(--red);">批評者 ≤6</div><div class="nps-item-val" style="color:var(--red);">${d.nps[0]}</div></div>
+      <div class="nn"><span>NPS</span><b>${sgn(d.npsScore)}</b></div>
+      <div class="nn"><span style="color:var(--good)">推薦者 9–10</span><b>${d.pro}</b></div>
+      <div class="nn"><span style="color:var(--warn)">被動者 7–8</span><b>${d.pas}</b></div>
+      <div class="nn"><span style="color:var(--bad)">批評者 0–6</span><b>${d.det}</b></div>
     </div>
-    <div class="nps-bar-wrap">
-      <div class="nps-seg" style="width:${detP}%;background:var(--red-light);"></div>
-      <div class="nps-seg" style="width:${pasP}%;background:var(--amber-light);"></div>
-      <div class="nps-seg" style="width:${proP}%;background:var(--green-light);"></div>
+    <div class="npsbar">
+      <div style="width:${p(d.det)}%;background:var(--bad)" data-tip="批評者 ${d.det} 人（${p(d.det)}%）"></div>
+      <div style="width:${p(d.pas)}%;background:var(--warn)" data-tip="被動者 ${d.pas} 人（${p(d.pas)}%）"></div>
+      <div style="width:${p(d.pro)}%;background:var(--good)" data-tip="推薦者 ${d.pro} 人（${p(d.pro)}%）"></div>
     </div>
-    <div class="nps-seg-labels">
-      <span class="nps-seg-label" style="color:var(--red);">批評者 ${detP}%</span>
-      <span class="nps-seg-label" style="color:var(--amber);">被動者 ${pasP}%</span>
-      <span class="nps-seg-label" style="color:var(--green);">推薦者 ${proP}%</span>
-    </div>
-    <div class="nps-explain">
-      <strong>什麼是 NPS？</strong>「你有多可能推薦這堂課？（0–10 分）」<br>
-      <div class="nps-chips">
-        <span class="chip chip-g">9–10 推薦者</span>
-        <span class="chip chip-a">7–8 被動者</span>
-        <span class="chip chip-r">0–6 批評者</span>
-      </div>
-      <div class="nps-formula">NPS = 推薦者% − 批評者% = ${proP}% − ${detP}% = ${npsVal>=0?'+':''}${npsVal}</div>
-      分數範圍 −100 至 +100，0 以上為正向，+50 以上優秀。
-    </div>`;
+    <div class="nps-lab"><span style="color:var(--bad)">批評者 ${p(d.det)}%</span><span style="color:var(--warn)">被動者 ${p(d.pas)}%</span><span style="color:var(--good)">推薦者 ${p(d.pro)}%</span></div>
+    <div class="explain"><b>怎麼算？</b>問題是「你有多可能推薦這堂課（0–10 分）」。NPS = 推薦者% − 批評者% = ${p(d.pro)}% − ${p(d.det)}% = <b class="num">${sgn(d.npsScore)}</b>。範圍 −100 到 +100，0 以上為正向，+50 以上屬優秀。</div>
+  </div>`;
+}
+function goalPanel(d){
+  const e=Object.entries(d.goals).sort((a,b)=>b[1]-a[1]);
+  return `<div class="panel"><div class="ptitle">報名主要目的<small>複選，佔回填 %</small></div>
+    ${e.map(([k,v])=>`<div class="brow" style="grid-template-columns:128px 1fr 40px" data-tip="${GOALS[k]}：${v} 人">
+      <div class="bl">${GOALS[k]}</div><div class="bt"><div class="bf" style="width:${v/d.n*100}%;opacity:.7"></div></div><div class="bv">${Math.round(v/d.n*100)}%</div></div>`).join('')}
+  </div>`;
+}
+function themePanel(d){
+  const e=Object.entries(d.themes).sort((a,b)=>b[1]-a[1]);
+  const mx=Math.max(1,...e.map(x=>x[1]));
+  return `<div class="panel"><div class="ptitle">改善建議主題<small>提到該主題的人數</small></div>
+    ${e.map(([k,v])=>`<div class="brow" style="grid-template-columns:150px 1fr 26px" data-tip="${THEMES[k]}：${v} 人提到（${Math.round(v/d.n*100)}%）">
+      <div class="bl">${THEMES[k]}</div><div class="bt"><div class="bf" style="width:${v/mx*100}%;background:var(--warn)"></div></div><div class="bv">${v}</div></div>`).join('')}
+    <p class="note" style="margin-top:12px">主題由開放題人工歸類，一則回饋可歸入多個主題；未同意公開者的內容僅計入人數。</p>
+  </div>`;
 }
 
-function render(key) {
-  const d = DATA[key];
-  const distMax = Math.max(...d.dist);
-  const distLabels = ['1★','2★','3★','4★','5★'];
-  const purpMax = Math.max(...Object.values(d.purpose));
-
-  document.getElementById('main').innerHTML = `
-    ${funnelBlock(key)}
-
-    <div class="section-label">整體指標</div>
-    <div class="metrics-row">
-      <div class="mc"><div class="mc-label">回填人數</div><div class="mc-val">${d.responses}<span> 份</span></div><div class="mc-sub">完整參與 ${d.full_attend}%</div></div>
-      <div class="mc"><div class="mc-label">課程平均評分</div><div class="mc-val">${d.overall.toFixed(2)}<span> / 5</span></div><div class="mc-sub" style="color:#EF9F27;">${'★'.repeat(Math.round(d.overall))}${'☆'.repeat(5-Math.round(d.overall))}</div></div>
-      <div class="mc"><div class="mc-label">推薦意願</div><div class="mc-val">${d.recommend_avg.toFixed(1)}<span> / 10</span></div><div class="mc-sub">NPS ${nps(d.nps)>=0?'+':''}${nps(d.nps)}</div></div>
-      <div class="mc"><div class="mc-label">同意公開回饋</div><div class="mc-val">${d.consent}<span>%</span></div><div class="mc-sub">${Math.round(d.responses*d.consent/100)} 位同意</div></div>
-    </div>
-
-    <div class="two-col">
-      <div class="cc">
-        <div class="cc-title">各項評分細項</div>
-        ${Object.entries(d.scores).map(([l,v])=>`
-          <div class="score-row">
-            <div class="score-label">${l}</div>
-            <div class="score-track"><div class="score-fill" style="width:${v/5*100}%;"></div></div>
-            <div class="score-val">${v.toFixed(1)}</div>
-          </div>`).join('')}
-      </div>
-      <div>
-        <div class="cc" style="margin-bottom:14px;">
-          <div class="cc-title">整體評分分佈</div>
-          ${d.dist.map((v,i)=>`
-            <div class="dist-row">
-              <div class="dist-label">${distLabels[i]}</div>
-              <div class="dist-track"><div class="dist-fill" style="width:${distMax?(v/distMax*100):0}%;"></div></div>
-              <div class="dist-count">${v}</div>
-            </div>`).join('')}
-        </div>
-        <div class="cc">${npsBlock(d)}</div>
-      </div>
-    </div>
-
-    <div class="two-col" style="margin-top:14px;">
-      <div class="cc">
-        <div class="cc-title">報名主要目的</div>
-        ${Object.entries(d.purpose).map(([l,c])=>`
-          <div class="purpose-row">
-            <div class="purpose-label">${l}</div>
-            <div class="purpose-track"><div class="purpose-fill" style="width:${c/purpMax*100}%;"></div></div>
-            <div class="purpose-cnt">${c}</div>
-          </div>`).join('')}
-      </div>
-      <div class="cc">
-        <div class="cc-title">課程亮點</div>
-        <div style="margin-bottom:14px;">${d.likes.map(l=>`<span class="tag tag-g">${l.length>28?l.slice(0,26)+'…':l}</span>`).join('')}</div>
-        <div class="cc-title">改善建議</div>
-        ${d.improve.map(i=>`<span class="tag tag-a">${i.length>28?i.slice(0,26)+'…':i}</span>`).join('')}
-      </div>
-    </div>
-
-    <div class="section-label">學員完整回饋</div>
-    <div class="two-col">
-      <div>
-        <div style="font-size:12px;font-weight:500;color:var(--text-2);margin-bottom:10px;">最喜歡的部分</div>
-        ${d.likes.map(l=>`<div class="comment-card"><span class="comment-badge">${d.label}</span><p class="comment-text">${l}</p></div>`).join('')}
-        ${d.extra.length?`
-          <div style="font-size:12px;font-weight:500;color:var(--text-2);margin:14px 0 10px;">給講師的話</div>
-          ${d.extra.map(e=>`<div class="comment-card"><p class="comment-text">${e}</p></div>`).join('')}`:''}
-      </div>
-      <div>
-        <div style="font-size:12px;font-weight:500;color:var(--text-2);margin-bottom:10px;">改善建議</div>
-        ${d.improve.map(i=>`<div class="improve-card"><p class="improve-text">${i}</p></div>`).join('')}
-      </div>
-    </div>
-  `;
+/* ---------- 全部場次專屬：比較圖 ---------- */
+function sessionCards(){
+  return `<div class="scards">${Object.entries(SESS).map(([k,s])=>{const d=BY[k];return `
+    <button class="scard" style="--c:${cv(s.v)}" data-go="${k}" aria-label="查看 ${s.label} 場次">
+      <div class="scard-top"><span class="scard-date">${s.label}</span><span class="scard-n">${d.n} 份回填</span></div>
+      <div class="scard-row"><span>平均滿意度</span><b>${d.overall.toFixed(2)}</b></div>
+      <div class="scard-row"><span>NPS</span><span class="pill ${npsClass(d.npsScore)}">${sgn(d.npsScore)}</span></div>
+      <div class="scard-row"><span>推薦者／批評者</span><span class="num">${d.pro} / ${d.det}</span></div>
+    </button>`}).join('')}</div>`;
+}
+function trendChart(){
+  const W=420,H=210,L=40,Rt=16,T=24,B=34, keys=Object.keys(SESS);
+  const x=i=>L+ (W-L-Rt)*(i+.5)/keys.length, y=v=>T+(H-T-B)*(1-(v-3.5)/1.5);
+  const ticks=[3.5,4,4.5,5];
+  const pts=keys.map((k,i)=>[x(i),y(BY[k].overall)]);
+  return `<div class="panel"><div class="ptitle">平均滿意度走勢<small>五項平均，縱軸自 3.5 起</small></div>
+  <svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="各場次平均滿意度">
+    ${ticks.map(t=>`<line x1="${L}" x2="${W-Rt}" y1="${y(t)}" y2="${y(t)}" stroke="var(--line)" stroke-width="1"/><text x="${L-8}" y="${y(t)+4}" text-anchor="end">${t.toFixed(1)}</text>`).join('')}
+    <polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="var(--ink-3)" stroke-width="2" stroke-dasharray="1 0"/>
+    ${keys.map((k,i)=>`<g data-tip="${SESS[k].label}：平均 ${BY[k].overall.toFixed(2)}（${BY[k].n} 份）">
+      <rect x="${x(i)-30}" y="${T}" width="60" height="${H-T-B}" fill="transparent"/>
+      <circle cx="${pts[i][0]}" cy="${pts[i][1]}" r="6" fill="${cv(SESS[k].v)}" stroke="var(--card)" stroke-width="2"/>
+      <text class="val" x="${pts[i][0]}" y="${pts[i][1]-12}" text-anchor="middle">${BY[k].overall.toFixed(2)}</text>
+      <text class="lab" x="${x(i)}" y="${H-12}" text-anchor="middle">${SESS[k].label}</text></g>`).join('')}
+  </svg></div>`;
+}
+function npsChart(){
+  const W=420,H=210,L=40,Rt=16,T=24,B=34, keys=Object.keys(SESS);
+  const lo=-20,hi=40, y=v=>T+(H-T-B)*(hi-v)/(hi-lo), bw=38;
+  const x=i=>L+(W-L-Rt)*(i+.5)/keys.length;
+  const ticks=[-20,0,20,40];
+  return `<div class="panel"><div class="ptitle">NPS 走勢<small>推薦者% − 批評者%</small></div>
+  <svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="各場次 NPS">
+    ${ticks.map(t=>`<line x1="${L}" x2="${W-Rt}" y1="${y(t)}" y2="${y(t)}" stroke="${t===0?'var(--ink-3)':'var(--line)'}" stroke-width="1"/><text x="${L-8}" y="${y(t)+4}" text-anchor="end">${sgn(t)}</text>`).join('')}
+    ${keys.map((k,i)=>{const v=BY[k].npsScore, top=Math.min(y(v),y(0)), h=Math.max(2,Math.abs(y(v)-y(0)));
+      return `<g data-tip="${SESS[k].label}：NPS ${sgn(v)}（推薦 ${BY[k].pro}・被動 ${BY[k].pas}・批評 ${BY[k].det}）">
+      <rect x="${x(i)-30}" y="${T}" width="60" height="${H-T-B}" fill="transparent"/>
+      <rect x="${x(i)-bw/2}" y="${top}" width="${bw}" height="${h}" rx="4" fill="${cv(SESS[k].v)}"/>
+      <text class="val" x="${x(i)}" y="${v>=0?top-7:top+h+15}" text-anchor="middle">${sgn(v)}</text>
+      <text class="lab" x="${x(i)}" y="${H-12}" text-anchor="middle">${SESS[k].label}</text></g>`}).join('')}
+  </svg></div>`;
+}
+function heat(title, note, rowsDef, cellFn){
+  const keys=Object.keys(SESS);
+  return `<div class="panel"><div class="ptitle">${title}<small>${note}</small></div><div class="hm-wrap"><table class="hm">
+    <thead><tr><th></th>${keys.map(k=>`<th><span class="dot" style="display:inline-block;background:${cv(SESS[k].v)};margin-right:5px"></span>${SESS[k].label}</th>`).join('')}<th>全部</th></tr></thead>
+    <tbody>${rowsDef.map(rd=>`<tr><th class="rl">${rd.label}</th>${[...keys,'all'].map(k=>cellFn(rd,k)).join('')}</tr>`).join('')}</tbody></table></div></div>`;
+}
+function cell(t, text, tip){ // t: 0..1 intensity
+  const pct=Math.round(8+t*80);
+  return `<td style="background:color-mix(in oklab, var(--accent) ${pct}%, var(--card));color:${pct>52?'#fff':'var(--ink)'}" data-tip="${tip}">${text}</td>`;
+}
+function scoreHeat(){
+  return heat('五項評分 × 場次','平均分，顏色越深越高（3.5–5.0）', ITEMS.map((l,i)=>({label:l,i})), (rd,k)=>{
+    const v=(k==='all'?ALL:BY[k]).items[rd.i]; return cell(Math.max(0,Math.min(1,(v-3.5)/1.5)), v.toFixed(2), `${k==='all'?'全部場次':SESS[k].label}・${rd.label}：${v.toFixed(2)}`);
+  });
+}
+function themeHeat(){
+  const order=Object.keys(THEMES).sort((a,b)=>ALL.themes[b]-ALL.themes[a]);
+  return heat('改善建議主題 × 場次','提到該主題的學員佔該場回填 %', order.map(k=>({label:THEMES[k],k})), (rd,k)=>{
+    const d=k==='all'?ALL:BY[k], c=d.themes[rd.k], p=Math.round(c/d.n*100);
+    return cell(Math.min(1,p/35), c?p+'%':'–', `${k==='all'?'全部場次':SESS[k].label}・${rd.label}：${c} 人（${p}%）`);
+  });
 }
 
-function switchTab(btn, key) {
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  render(key);
+/* ---------- 文字回饋 ---------- */
+const SKIP=/^(無|No|沒有)$/;
+function fbCards(list, key){
+  if(!list.length) return `<p class="note">這一類沒有可公開的文字回饋。</p>`;
+  return `<div class="fb-cols">${list.map((r,idx)=>{const t=r[key], long=t.length>150;return `
+    <div class="fb"><div class="fb-meta"><span class="chip s"><span class="dot" style="background:${cv(SESS[r.s].v)}"></span>${SESS[r.s].label}</span><span class="chip num">推薦 ${r.nps}</span><span class="chip num">滿意 ${mean(r.q).toFixed(1)}</span></div>
+    <p class="${long?'clamp':''}" id="fb-${key}-${idx}">${esc(t)}</p>${long?`<button class="more" data-more="fb-${key}-${idx}">展開全文</button>`:''}</div>`}).join('')}</div>`;
+}
+let FB_ROWS=[];
+function feedback(rs, limit){
+  FB_ROWS=rs;
+  const pub=rs.filter(r=>r.ok);
+  const g=(k)=>pub.filter(r=>r[k]&&!SKIP.test(r[k].trim()));
+  const groups=[
+    ['L','推薦者：最喜歡的部分','給 9–10 分的學員', 'var(--good)'],
+    ['G','被動者：還差什麼才會推薦','給 7–8 分的學員', 'var(--warn)'],
+    ['I','批評者：希望加強的地方','給 0–6 分的學員', 'var(--bad)'],
+    ['E','給講師與團隊的話','所有人', 'var(--accent)']
+  ];
+  const cap=limit?4:Infinity;
+  return groups.map(([k,t,s,c])=>{const list=g(k); const shown=list.slice(0,cap); return `<div class="fb-group" id="grp-${k}"><div class="fb-gh"><span class="dot" style="background:${c};width:10px;height:10px"></span>${t}<span>${s} · ${list.length} 則</span></div>${fbCards(shown,k)}${list.length>cap?`<button class="more" data-expand="${k}">看全部 ${list.length} 則</button>`:''}</div>`}).join('');
 }
 
-render('all');
+/* ---------- 漏斗 ---------- */
+function funnelRow(lbl,v,max,color,op){return `<div class="fn-r"><span>${lbl}</span><div class="bt"><div class="bf" style="width:${v/max*100}%;background:${color};opacity:${op}"></div></div><span class="bv">${v}</span></div>`}
+function funnel(key){
+  if(key==='all'){
+    const known=Object.keys(SESS).filter(k=>SESS[k].reg), withAtt=Object.keys(SESS).filter(k=>SESS[k].att);
+    const reg=known.reduce((a,k)=>a+SESS[k].reg,0), attK=known.reduce((a,k)=>a+SESS[k].att,0);
+    const att=withAtt.reduce((a,k)=>a+SESS[k].att,0), resp=withAtt.reduce((a,k)=>a+BY[k].n,0);
+    const allReg=known.length===Object.keys(SESS).length;
+    return `<div class="panel">
+      <div class="fn-top"><div><b>${reg}</b><span>報名${allReg?'':'（前三場）'}</span></div><div><b>${att}</b><span>出席｜${allReg?'':'前三場出席率 '}${Math.round(attK/reg*100)}%</span></div><div><b>${resp}</b><span>回填｜出席者的 ${Math.round(resp/att*100)}%</span></div></div>
+      <div class="fn-grid">${Object.entries(SESS).map(([k,s])=>`<div><div class="fn-s"><span class="dot" style="background:${cv(s.v)}"></span>${s.label}</div>
+        ${s.reg?funnelRow('報名',s.reg,s.reg,cv(s.v),.25)+funnelRow('出席',s.att,s.reg,cv(s.v),.55)+funnelRow('回填',BY[k].n,s.reg,cv(s.v),1)
+        :s.att?`<div class="fn-r"><span>報名</span><span class="note" style="font-size:11px">待補</span><span></span></div>`+funnelRow('出席',s.att,Math.max(...known.map(j=>SESS[j].reg)),cv(s.v),.55)+funnelRow('回填',BY[k].n,Math.max(...known.map(j=>SESS[j].reg)),cv(s.v),1)
+        :`<div class="pending">報名與出席人數待補，目前回填 <b class="num">${BY[k].n}</b> 份</div>`}</div>`).join('')}</div></div>`;
+  }
+  const s=SESS[key], d=BY[key];
+  if(!s.reg && s.att) return `<div class="panel"><div class="fn-top"><div><b style="color:var(--ink-3)">—</b><span>報名｜待補</span></div><div><b>${s.att}</b><span>出席</span></div><div><b>${d.n}</b><span>回填｜出席者的 ${Math.round(d.n/s.att*100)}%</span></div></div>
+    ${funnelRow('出席',s.att,s.att,cv(s.v),.55)}${funnelRow('回填',d.n,s.att,cv(s.v),1)}</div>`;
+  if(!s.reg) return `<div class="panel"><div class="pending">本場報名與出席人數尚未提供，目前回填 <b class="num">${d.n}</b> 份。補上後即可看到填寫率。</div></div>`;
+  return `<div class="panel"><div class="fn-top"><div><b>${s.reg}</b><span>報名</span></div><div><b>${s.att}</b><span>出席｜${Math.round(s.att/s.reg*100)}%</span></div><div><b>${d.n}</b><span>回填｜出席者的 ${Math.round(d.n/s.att*100)}%</span></div></div>
+    ${funnelRow('報名',s.reg,s.reg,cv(s.v),.25)}${funnelRow('出席',s.att,s.reg,cv(s.v),.55)}${funnelRow('回填',d.n,s.reg,cv(s.v),1)}</div>`;
+}
+
+/* ---------- 版面 ---------- */
+function sec(title,note,body){return `<section class="sec"><div class="sec-h"><h2>${title}</h2>${note?`<p>${note}</p>`:''}</div>${body}</section>`}
+function render(key){
+  const m=document.getElementById('main');
+  if(key==='all'){
+    m.innerHTML =
+      sec('四個場次一覽','點選卡片可看該場次細節', sessionCards()) +
+      sec('場次趨勢','', `<div class="grid2">${trendChart()}${npsChart()}</div>`) +
+      sec('評分與問題的場次差異','', `<div class="stack">${scoreHeat()}${themeHeat()}</div>`) +
+      sec('參與與填寫概況','', funnel('all')) +
+      sec('全部場次整體指標', `${ALL.n} 份回填`, metrics(ALL)) +
+      sec('評分與推薦','', `<div class="grid2">${itemBars(ALL,false)}<div class="stack">${distPanel(ALL)}${npsPanel(ALL)}</div></div>`) +
+      sec('報名動機與改善方向','', `<div class="grid2">${goalPanel(ALL)}${themePanel(ALL)}</div>`) +
+      sec('學員文字回饋','每類先列 4 則，完整內容可展開或切到各場次查看', `<div id="fbAll">${feedback(rows,true)}</div>`) +
+      sec('資料說明','', `<div class="panel notes">
+        <p class="note">・原始 91 筆回覆中，排除 1 筆開課前的內部測試（3/12），並合併 2 位重複送出的學員（各保留最後一次），共 88 份。</p>
+        <p class="note">・前三場的報名／出席人數沿用先前整理的數字；8/22 場次出席 28 人，報名人數尚待補上。</p>
+        <p class="note">・問卷的開放題依推薦分數分流：9–10 分回答「最喜歡的部分」、7–8 分回答「還差什麼才會推薦」、0–6 分回答「哪裡需要加強」。</p></div>`);
+  } else {
+    const d=BY[key], rs=rows.filter(r=>r.s===key), s=SESS[key];
+    const diff=d.overall-ALL.overall;
+    m.innerHTML =
+      sec(`${s.long} 場次`, `${d.n} 份回填 · 平均滿意度較全部場次 ${diff>=0?'高':'低'} ${Math.abs(diff).toFixed(2)} 分`, funnel(key)) +
+      sec('整體指標','', metrics(d)) +
+      sec('評分與推薦','', `<div class="grid2">${itemBars(d,true)}<div class="stack">${distPanel(d)}${npsPanel(d)}</div></div>`) +
+      sec('報名動機與改善方向','', `<div class="grid2">${goalPanel(d)}${themePanel(d)}</div>`) +
+      sec('學員文字回饋','只收錄同意公開者', feedback(rs));
+  }
+}
+
+/* ---------- 分頁 ---------- */
+const tabs=document.getElementById('tabs');
+const TABDEF=[['all','全部場次',null],...Object.entries(SESS).map(([k,s])=>[k,s.label,s.v])];
+tabs.innerHTML=TABDEF.map(([k,l,v],i)=>`<button class="tab" role="tab" id="tab-${k}" data-tab="${k}" aria-selected="${i===0}">${v?`<span class="dot" style="background:${cv(v)}"></span>`:''}${l}${k!=='all'?` <span class="num" style="color:var(--ink-3);font-size:11px">${BY[k].n}</span>`:''}</button>`).join('');
+function go(k){
+  document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===k));
+  render(k); try{localStorage.setItem('dsws-tab',k)}catch(e){}
+}
+tabs.addEventListener('click',e=>{const b=e.target.closest('[data-tab]'); if(b){go(b.dataset.tab); window.scrollTo({top:0})}});
+document.getElementById('main').addEventListener('click',e=>{
+  const c=e.target.closest('[data-go]'); if(c){go(c.dataset.go); window.scrollTo({top:0}); return;}
+  const ex=e.target.closest('[data-expand]');
+  if(ex){const k=ex.dataset.expand, grp=document.getElementById('grp-'+k);
+    const tmp=document.createElement('div'); tmp.innerHTML=feedback(FB_ROWS,false);
+    grp.replaceWith(tmp.querySelector('#grp-'+k)); return;}
+  const mo=e.target.closest('[data-more]'); if(mo){const p=document.getElementById(mo.dataset.more); const open=p.classList.toggle('clamp'); mo.textContent=open?'展開全文':'收合';}
+});
+document.getElementById('headStats').innerHTML=`
+  <div class="hs"><b>${ALL.n}</b><span>份問卷回覆</span></div>
+  <div class="hs"><b>${ALL.overall.toFixed(2)}</b><span>平均滿意度 / 5</span></div>
+  <div class="hs"><b>${sgn(ALL.npsScore)}</b><span>整體 NPS</span></div>`;
+
+/* ---------- tooltip ---------- */
+const tip=document.getElementById('tip');
+document.addEventListener('mousemove',e=>{
+  const t=e.target.closest('[data-tip]');
+  if(!t){tip.style.opacity=0;return;}
+  tip.textContent=t.dataset.tip; tip.style.opacity=1;
+  const w=tip.offsetWidth, x=Math.min(e.clientX+14, innerWidth-w-8);
+  tip.style.left=x+'px'; tip.style.top=(e.clientY+16)+'px';
+});
+
+let start='all'; try{const s=localStorage.getItem('dsws-tab'); if(s&&(s==='all'||SESS[s]))start=s}catch(e){}
+go(start);
 </script>
 </body>
 </html>
